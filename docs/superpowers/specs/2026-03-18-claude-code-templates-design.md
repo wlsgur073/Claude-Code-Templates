@@ -280,7 +280,7 @@ Explains settings.json:
 Maps the `.claude/` ecosystem:
 
 - `.claude/` directory — contents: CLAUDE.md, settings.json, settings.local.json, rules/
-- Auto memory — `~/.claude/projects/<project>/memory/`, MEMORY.md index, topic files, 200-line cap
+- Auto memory — `~/.claude/projects/<project>/memory/`, MEMORY.md index, topic files. Clarify that the 200-line limit for MEMORY.md is a **hard load boundary** (content past line 200 is not loaded at session start), while the 200-line target for CLAUDE.md is a **soft adherence guideline** (CLAUDE.md files are loaded in full regardless of length, but shorter files produce better adherence). These are the same number for different reasons.
 - What to .gitignore — `settings.local.json` yes; `settings.json` and `rules/` no (team-shared)
 - The distinction — CLAUDE.md = what you tell Claude; auto memory = what Claude tells itself; settings = behavior configuration
 
@@ -309,9 +309,10 @@ Essential day-one usage patterns that complement the configuration guides. Sourc
 **Session management essentials**
 
 - `Esc` — interrupt Claude mid-action. Context is preserved.
-- `Esc + Esc` or `/rewind` — rewind to a previous checkpoint (conversation and/or code).
+- Press `Esc` twice or `/rewind` — rewind to a previous checkpoint (conversation and/or code).
 - `/clear` — reset context between unrelated tasks. **Use frequently.**
 - `/compact` — summarize conversation to free context. Add focus: `/compact focus on the API changes`.
+- `/context` — see what's using space in your context window. Use this to diagnose when context is getting full.
 - `--continue` / `--resume` — pick up where you left off across sessions.
 
 **Permission modes**
@@ -335,7 +336,7 @@ Five anti-patterns from the official best practices:
 2. **Correcting over and over** — repeated failed corrections pollute context. Fix: after two failures, `/clear` and write a better initial prompt.
 3. **Over-specified CLAUDE.md** — too long, important rules get lost. Fix: ruthlessly prune.
 4. **Trust-then-verify gap** — plausible output that doesn't handle edge cases. Fix: always provide verification.
-5. **Infinite exploration** — unscoped investigation fills context. Fix: scope narrowly or use subagents.
+5. **Infinite exploration** — unscoped investigation fills context. Fix: scope the investigation narrowly (e.g., "check only src/auth/" instead of "investigate the codebase").
 
 ## 7. Cross-Cutting Concerns
 
