@@ -9,6 +9,6 @@
 # Directory Purpose
 <!-- What does this directory contain? What is its role in the project? -->
 
-# Conventions
+## Conventions
 <!-- Any rules specific to files in this directory -->
 <!-- e.g., "All files here export a single class", "Never import from tests/" -->

@@ -71,7 +71,7 @@ The rule of thumb: if Claude would make a mistake without this information, incl
 Reference external files to keep your CLAUDE.md focused while linking to deeper context:
 
 ```markdown
-# References
+## References
 See @README.md for project overview
 @docs/architecture.md
 @docs/api-conventions.md

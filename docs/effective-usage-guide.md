@@ -23,7 +23,7 @@ This is why configuration matters:
 Include test commands, lint commands, and build commands in your CLAUDE.md so Claude can self-check:
 
 ```markdown
-# Testing
+## Testing
 npm test             # run full test suite
 npm run lint         # check for style issues
 npm run build        # verify TypeScript compiles
