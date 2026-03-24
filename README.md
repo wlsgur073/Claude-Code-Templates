@@ -10,11 +10,13 @@ from day one.
 ## Quick Start
 
 1. **Clone this repo**
+
    ```bash
    git clone https://github.com/wlsgur073/Claude-Code-Templates.git
    ```
 
 2. **Copy templates into your project**
+
    ```bash
    # Copy the essentials
    cp Claude-Code-Templates/templates/CLAUDE.md your-project/CLAUDE.md
@@ -31,10 +33,13 @@ from day one.
 
 ```text
 Claude-Code-Templates/
-├── templates/      ← Blank scaffolds to copy into your project
-├── templates-ko/   ← Korean translations of the templates
-├── examples/       ← Filled reference versions (fictional "TaskFlow" project)
-└── docs/           ← Guides explaining each concept
+├── templates/             ← Blank scaffolds to copy into your project
+├── templates/advanced/    ← Advanced feature scaffolds (hooks, agents, skills)
+├── templates-ko/          ← Korean translations of the templates
+├── templates-ko/advanced/ ← Korean translations of advanced scaffolds
+├── examples/              ← Filled reference versions (fictional "TaskFlow" project)
+├── examples/advanced/     ← Filled advanced feature examples
+└── docs/                  ← Guides explaining each concept
 ```
 
 | Directory | Purpose |
@@ -70,6 +75,7 @@ Claude Code has a layered memory system:
 | [Settings Guide](docs/settings-guide.md) | settings.json configuration |
 | [Directory Structure](docs/directory-structure-guide.md) | The .claude/ ecosystem |
 | [Effective Usage](docs/effective-usage-guide.md) | Day-one usage patterns |
+| [Advanced Features](docs/advanced-features-guide.md) | Hooks, agents, and skills |
 
 ## Contributing
 

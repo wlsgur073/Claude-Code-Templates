@@ -103,6 +103,10 @@ Launch Claude Code in your project and confirm everything is loaded:
 2. Try a simple task -- ask Claude to explain your project structure or run your test suite.
 3. Check that Claude follows your instructions -- if it ignores a rule, the CLAUDE.md may be too long or the instruction may be too vague.
 
+## Step 7: Explore Advanced Features (Optional)
+
+Once your basic configuration is working, explore hooks, agents, and skills for more sophisticated workflows. See the [Advanced Features Guide](advanced-features-guide.md).
+
 ## What's Next
 
 - [CLAUDE.md Guide](claude-md-guide.md) -- Deep dive on writing effective CLAUDE.md files
@@ -110,3 +114,4 @@ Launch Claude Code in your project and confirm everything is loaded:
 - [Settings Guide](settings-guide.md) -- All settings.json configuration options
 - [Directory Structure Guide](directory-structure-guide.md) -- Understanding the .claude/ ecosystem
 - [Effective Usage Guide](effective-usage-guide.md) -- Day-one usage patterns and anti-patterns to avoid
+- [Advanced Features Guide](advanced-features-guide.md) -- Hooks, agents, and skills for teams

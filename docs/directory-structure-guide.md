@@ -17,15 +17,20 @@ your-project/
 │   ├── CLAUDE.md                 # Project instructions (alternative placement)
 │   ├── settings.json             # Team-shared settings (commit this)
 │   ├── settings.local.json       # Personal overrides (gitignored)
-│   └── rules/                    # Modular instruction files
-│       ├── code-style.md
-│       ├── testing.md
-│       └── ...
+│   ├── rules/                    # Modular instruction files
+│   │   ├── code-style.md
+│   │   ├── testing.md
+│   │   └── ...
+│   ├── agents/                   # Agent definitions (advanced)
+│   │   └── developer.md
+│   └── skills/                   # Skill definitions (advanced)
+│       └── scaffold-feature/
+│           └── SKILL.md
 └── src/
     └── CLAUDE.md                 # Folder-level instructions (lazy-loaded)
 ```
 
-Everything inside `.claude/` is Claude Code configuration. The root `CLAUDE.md` and any folder-level `CLAUDE.md` files sit alongside your project files.
+Everything inside `.claude/` is Claude Code configuration. The root `CLAUDE.md` and any folder-level `CLAUDE.md` files sit alongside your project files. The `agents/` and `skills/` directories are advanced features -- see the [Advanced Features Guide](advanced-features-guide.md).
 
 ## Auto Memory
 

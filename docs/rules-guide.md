@@ -29,6 +29,8 @@ Keep one topic per file. Use descriptive filenames that make the content obvious
 .claude/rules/
   code-style.md          # Naming, formatting, import conventions
   testing.md             # Test framework, patterns, coverage targets
+  architecture.md        # Layer dependencies and module boundaries
+  workflow.md            # Pre-development checklist and review gates
   api-design.md          # API endpoint conventions
   database.md            # Query patterns, migration rules
   security.md            # Auth, input validation, secrets handling

@@ -102,6 +102,10 @@ Skip specific CLAUDE.md files by path or glob pattern. Useful in monorepos where
 
 See the [memory documentation](https://code.claude.com/docs/en/memory#exclude-specific-claudemd-files) for details.
 
+### hooks, env, enabledPlugins (Advanced)
+
+The `hooks` key runs shell commands before/after tool use (e.g., auto-linting). The `env` key sets environment variables for Claude's commands. The `enabledPlugins` key lists official plugins. See the [Advanced Features Guide](advanced-features-guide.md) for details and examples.
+
 ## What NOT to Put in Project Settings
 
 Some settings are restricted from `.claude/settings.json` for security reasons. For example, `autoMemoryDirectory` cannot be set in project settings because a shared repository could redirect memory writes to a sensitive location on a developer's machine.
