@@ -11,7 +11,8 @@ This is a documentation and template repository — it contains no application c
 - `templates-ko/advanced/` — Korean translation of advanced scaffolds
 - `examples/` — Filled-out configuration for a fictional "TaskFlow" Node.js/Express project, demonstrating what completed templates look like
 - `examples/advanced/` — Filled advanced feature examples (hooks, agents, skills)
-- `setup-prompt.md` / `setup-prompt-ko.md` — Automated setup prompts referenced via `@` import from user projects
+- `setup-prompt.md` — Automated setup prompt referenced via `@` import from user projects
+- `docs/ko-KR/` — Korean translations of guides, README, and setup prompt
 - `.claude/` — This repo's own Claude Code settings
 
 ## Contribution Rules

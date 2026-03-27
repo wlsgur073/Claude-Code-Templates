@@ -9,7 +9,7 @@ as reference.
 **Audience:** Developers new to Claude Code who want a working configuration
 from day one.
 
-**[한국어 README](README-ko.md)**
+**[한국어 README](docs/ko-KR/README.md)**
 
 ## Quick Start
 
@@ -74,14 +74,14 @@ from day one.
 ```text
 Claude-Code-Templates/
 ├── setup-prompt.md        ← Automated setup prompt (for Option A)
-├── setup-prompt-ko.md     ← Korean version of the setup prompt
 ├── templates/             ← Blank scaffolds to copy into your project
 ├── templates/advanced/    ← Advanced feature scaffolds (hooks, agents, skills)
 ├── templates-ko/          ← Korean translations of the templates
 ├── templates-ko/advanced/ ← Korean translations of advanced scaffolds
 ├── examples/              ← Filled reference versions (fictional "TaskFlow" project)
 ├── examples/advanced/     ← Filled advanced feature examples
-└── docs/                  ← Guides explaining each concept
+├── docs/                  ← Guides explaining each concept
+└── docs/ko-KR/            ← Korean guides, README, and setup prompt
 ```
 
 | Directory | Purpose |
