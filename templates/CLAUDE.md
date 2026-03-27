@@ -12,6 +12,10 @@
 <!-- Be specific: "Use 2-space indentation" not "Format code properly" -->
 <!-- Only include rules that differ from language defaults -->
 
+## Workflow
+<!-- Branch naming, commit message conventions, PR process -->
+<!-- Pre-development checklist: what to verify before starting implementation -->
+
 ## Project Structure
 <!-- List key directories and their purposes -->
 <!-- e.g., src/api/ → API handlers, src/models/ → data models -->

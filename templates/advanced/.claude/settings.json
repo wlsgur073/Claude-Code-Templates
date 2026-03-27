@@ -7,22 +7,24 @@
   "hooks": {
     "PostToolUse": [
       {
-        "matcher": "",
+        "matcher": "Edit|Write",
         "hooks": [
           {
             "type": "command",
-            "command": ""
+            "command": "",
+            "statusMessage": ""
           }
         ]
       }
     ],
     "PreToolUse": [
       {
-        "matcher": "",
+        "matcher": "Edit|Write",
         "hooks": [
           {
             "type": "command",
-            "command": ""
+            "command": "",
+            "statusMessage": ""
           }
         ]
       }
