@@ -11,6 +11,7 @@ This is a documentation and template repository — it contains no application c
 - `examples/advanced/` — Filled advanced feature examples (hooks, agents, skills)
 - `setup-prompt.md` — Automated setup prompt referenced via `@` import from user projects
 - `ko-KR/` — Korean translations mirroring the root structure (`guide/`, `templates/`, `setup-prompt.md`, `README.md`)
+- `docs/` — GitHub community health files (CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md)
 - `.claude/` — This repo's own Claude Code settings
 
 ## Contribution Rules

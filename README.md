@@ -59,6 +59,7 @@ Claude-Code-Templates/
 ├── examples/              ← Filled reference versions (fictional "TaskFlow" project)
 ├── examples/advanced/     ← Filled advanced feature examples
 ├── guide/                 ← Guides explaining each concept
+├── docs/                  ← GitHub community health files (CoC, Contributing, Security)
 └── ko-KR/                 ← Korean translations (mirrors root structure)
 ```
 
