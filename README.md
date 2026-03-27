@@ -54,10 +54,11 @@ from day one.
 ```text
 Claude-Code-Templates/
 ├── setup-prompt.md        ← Automated setup prompt (used in Quick Start)
-├── templates/             ← Blank scaffolds to copy into your project
-├── templates/advanced/    ← Advanced feature scaffolds (hooks, agents, skills)
-├── examples/              ← Filled reference versions (fictional "TaskFlow" project)
-├── examples/advanced/     ← Filled advanced feature examples
+├── starter/               ← Minimal scaffold for beginners (CLAUDE.md + settings.json)
+├── advanced/              ← Full scaffold (rules, hooks, agents, skills, statusline)
+├── ecosystem/             ← Ready-to-use components catalog (coming soon)
+├── examples/starter/      ← Filled starter example (fictional "TaskFlow" project)
+├── examples/advanced/     ← Filled advanced example (rules, hooks, agents, skills)
 ├── guide/                 ← Guides explaining each concept
 ├── docs/                  ← GitHub community health files (CoC, Contributing, Security)
 └── ko-KR/                 ← Korean translations (mirrors root structure)
@@ -65,8 +66,11 @@ Claude-Code-Templates/
 
 | Directory | Purpose |
 | ------------- | --------- |
-| `templates/` | Blank scaffolds with HTML comment prompts — copy and fill in |
-| `examples/` | Realistic filled examples — use as a reference while editing |
+| `starter/` | Minimal scaffold — 5-section CLAUDE.md + settings.json, for quick setup |
+| `advanced/` | Full scaffold — rules, hooks, agents, skills, statusline |
+| `ecosystem/` | Ready-to-use skills, hooks, and agents — copy directly into your project |
+| `examples/starter/` | Filled starter example — minimal TaskFlow configuration |
+| `examples/advanced/` | Filled advanced example — rules, hooks, agents, skills |
 | `guide/` | Standalone guides — read any one without the others |
 | `ko-KR/` | Korean translations — same structure as root |
 
@@ -148,7 +152,7 @@ Customize the Claude Code status bar to show model, context usage, cost, duratio
 **One-line setup:**
 
 ```bash
-cp Claude-Code-Templates/templates/statusline.sh ~/.claude/statusline.sh
+cp Claude-Code-Templates/advanced/statusline.sh ~/.claude/statusline.sh
 ```
 
 Claude Code automatically detects `~/.claude/statusline.sh` — no additional configuration needed.

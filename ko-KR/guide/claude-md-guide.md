@@ -41,7 +41,7 @@ Claude는 여러 위치에서 지시사항을 로드하며, 더 구체적인 범
 - `tests/CLAUDE.md` -- 테스트 패턴 및 헬퍼
 - `docs/CLAUDE.md` -- 문서 표준
 
-이렇게 하면 루트 CLAUDE.md는 프로젝트 전체 지시사항에 집중하면서, 필요한 곳에 정확히 더 깊은 컨텍스트를 제공할 수 있습니다. 실제 예시는 `examples/src/CLAUDE.md`와 `examples/tests/CLAUDE.md`를 참고하세요.
+이렇게 하면 루트 CLAUDE.md는 프로젝트 전체 지시사항에 집중하면서, 필요한 곳에 정확히 더 깊은 컨텍스트를 제공할 수 있습니다. 또는 경로 기반 지시사항에는 `.claude/rules/` 파일을 사용하는 것도 고려하세요 — [Rules 가이드](rules-guide.md)를 참고하세요.
 
 ## 작성 원칙
 

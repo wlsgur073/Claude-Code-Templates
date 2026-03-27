@@ -6,4 +6,4 @@
 
 # Project Instructions
 <!-- Add your project instructions here if using this location -->
-<!-- See the root templates/CLAUDE.md for the recommended section structure -->
+<!-- See the root advanced/CLAUDE.md for the recommended section structure -->

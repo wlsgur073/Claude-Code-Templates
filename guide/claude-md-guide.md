@@ -41,7 +41,7 @@ Use folder-level files for context that is specific to one part of your project:
 - `tests/CLAUDE.md` -- testing patterns and helpers
 - `docs/CLAUDE.md` -- documentation standards
 
-This keeps your root CLAUDE.md focused on project-wide instructions while providing deeper context exactly where it is needed. See `examples/src/CLAUDE.md` and `examples/tests/CLAUDE.md` for working examples.
+This keeps your root CLAUDE.md focused on project-wide instructions while providing deeper context exactly where it is needed. Alternatively, consider using `.claude/rules/` files for path-scoped instructions — see the [Rules Guide](rules-guide.md).
 
 ## Writing Principles
 

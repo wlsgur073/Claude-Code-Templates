@@ -28,25 +28,27 @@ claude
 
 ## Step 2: 템플릿 복사
 
-이 저장소를 클론한 다음, 스캐폴드를 프로젝트에 복사하세요:
+이 저장소를 클론한 다음, 스캐폴드를 프로젝트에 복사하세요. 시작점을 선택하세요:
+
+**Starter** (입문자 추천):
 
 ```bash
-# 필수: 루트 CLAUDE.md 스캐폴드 복사
-cp Claude-Code-Templates/templates/CLAUDE.md your-project/CLAUDE.md
+# 미니멀 CLAUDE.md 스캐폴드 복사 (5섹션)
+cp Claude-Code-Templates/starter/CLAUDE.md your-project/CLAUDE.md
 
-# 필수: settings 스캐폴드 복사
+# settings 스캐폴드 복사
 mkdir -p your-project/.claude
-cp Claude-Code-Templates/templates/.claude/settings.json your-project/.claude/settings.json
+cp Claude-Code-Templates/starter/.claude/settings.json your-project/.claude/settings.json
+```
 
-# 선택: rules 스캐폴드 복사
-mkdir -p your-project/.claude/rules
-cp Claude-Code-Templates/templates/.claude/rules/*.md your-project/.claude/rules/
+**Advanced** (전체 설정):
 
-# 선택: 특정 디렉토리에 폴더 단위 CLAUDE.md 추가
-cp Claude-Code-Templates/templates/subdirectory-claude-md/CLAUDE.md your-project/src/CLAUDE.md
+```bash
+# 전체 CLAUDE.md 스캐폴드 복사 (8섹션)
+cp Claude-Code-Templates/advanced/CLAUDE.md your-project/CLAUDE.md
 
-# 권장: Claude 전용 .gitignore 항목 추가
-cat Claude-Code-Templates/templates/.gitignore >> your-project/.gitignore
+# settings, rules, 고급 기능 복사
+cp -r Claude-Code-Templates/advanced/.claude your-project/.claude
 ```
 
 `/init`으로 이미 CLAUDE.md를 생성했다면, 템플릿의 섹션을 기존 파일에 병합하세요. 템플릿은 일관된 섹션 구조를 제공하고, `/init`은 프로젝트에 특화된 내용을 제공합니다. 양쪽의 장점을 결합하세요.

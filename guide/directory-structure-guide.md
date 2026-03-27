@@ -73,7 +73,7 @@ Add this to your project's `.gitignore`:
 .claude/settings.local.json
 ```
 
-The `templates/.gitignore` scaffold includes this line ready to copy.
+Add this line to your project's `.gitignore` to exclude personal settings.
 
 ## The Three Systems
 

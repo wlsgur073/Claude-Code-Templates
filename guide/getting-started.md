@@ -28,25 +28,27 @@ The output from `/init` gives you a solid starting point. Our templates fill gap
 
 ## Step 2: Copy the Templates
 
-Clone this repository, then copy the scaffolds into your project:
+Clone this repository, then copy the scaffolds into your project. Choose your starting point:
+
+**Starter** (recommended for beginners):
 
 ```bash
-# Required: copy the root CLAUDE.md scaffold
-cp Claude-Code-Templates/templates/CLAUDE.md your-project/CLAUDE.md
+# Copy the minimal CLAUDE.md scaffold (5 sections)
+cp Claude-Code-Templates/starter/CLAUDE.md your-project/CLAUDE.md
 
-# Required: copy settings scaffold
+# Copy settings scaffold
 mkdir -p your-project/.claude
-cp Claude-Code-Templates/templates/.claude/settings.json your-project/.claude/settings.json
+cp Claude-Code-Templates/starter/.claude/settings.json your-project/.claude/settings.json
+```
 
-# Optional: copy rules scaffolds
-mkdir -p your-project/.claude/rules
-cp Claude-Code-Templates/templates/.claude/rules/*.md your-project/.claude/rules/
+**Advanced** (for full configuration):
 
-# Optional: add folder-level CLAUDE.md to specific directories
-cp Claude-Code-Templates/templates/subdirectory-claude-md/CLAUDE.md your-project/src/CLAUDE.md
+```bash
+# Copy the full CLAUDE.md scaffold (8 sections)
+cp Claude-Code-Templates/advanced/CLAUDE.md your-project/CLAUDE.md
 
-# Recommended: add Claude-specific .gitignore entries
-cat Claude-Code-Templates/templates/.gitignore >> your-project/.gitignore
+# Copy settings, rules, and advanced features
+cp -r Claude-Code-Templates/advanced/.claude your-project/.claude
 ```
 
 If `/init` already created a CLAUDE.md, merge the template sections into it. The template provides a consistent section structure; `/init` provides project-specific content. Combine the best of both.

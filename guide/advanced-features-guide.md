@@ -125,7 +125,7 @@ The four-step pattern (gather, validate, execute, verify) keeps skills predictab
 
 ## Templates
 
-Copy advanced scaffolds from `templates/advanced/` into your project's `.claude/` directory. If you already have a basic `settings.json`, add the `hooks`, `env`, and `enabledPlugins` keys rather than overwriting. See `examples/advanced/` for filled TaskFlow versions.
+Copy advanced scaffolds from `advanced/` into your project's `.claude/` directory. If you already have a basic `settings.json`, add the `hooks`, `env`, and `enabledPlugins` keys rather than overwriting. See `examples/advanced/` for filled TaskFlow versions.
 
 ## Further Reading
 
