@@ -13,8 +13,6 @@ from day one.
 
 ## Quick Start
 
-### Option A: Automated setup (recommended)
-
 1. **Clone this repo** next to your project:
 
    ```bash
@@ -48,24 +46,6 @@ from day one.
    Optionally, Claude can also set up auto-linting hooks, file protection,
    agent roles, and skill commands if you choose them during setup.
 
-### Option B: Manual setup
-
-1. **Clone this repo**
-
-   ```bash
-   git clone https://github.com/wlsgur073/Claude-Code-Templates.git
-   ```
-
-2. **Copy templates into your project**
-
-   ```bash
-   cp Claude-Code-Templates/templates/CLAUDE.md your-project/CLAUDE.md
-   mkdir -p your-project/.claude
-   cp Claude-Code-Templates/templates/.claude/settings.json your-project/.claude/settings.json
-   ```
-
-3. **Fill in the scaffolds** using `examples/` as reference
-
 > **Tip:** Run `/init` in your project first — Claude auto-generates a starter
 > CLAUDE.md. Then merge our template to fill gaps `/init` misses.
 
@@ -73,7 +53,7 @@ from day one.
 
 ```text
 Claude-Code-Templates/
-├── setup-prompt.md        ← Automated setup prompt (for Option A)
+├── setup-prompt.md        ← Automated setup prompt (used in Quick Start)
 ├── templates/             ← Blank scaffolds to copy into your project
 ├── templates/advanced/    ← Advanced feature scaffolds (hooks, agents, skills)
 ├── examples/              ← Filled reference versions (fictional "TaskFlow" project)
