@@ -11,6 +11,43 @@ from day one.
 
 ## Quick Start
 
+### Option A: Automated setup (recommended)
+
+1. **Clone this repo** next to your project:
+
+   ```bash
+   git clone https://github.com/wlsgur073/Claude-Code-Templates.git
+   # Result: your-project/ and Claude-Code-Templates/ are siblings
+   ```
+
+2. **Run Claude in your project** and reference the setup prompt with `@`:
+
+   ```
+   cd your-project
+   claude
+   > @../Claude-Code-Templates/setup-prompt.md
+   ```
+
+   > `@` imports the file's content into the conversation — Claude reads
+   > the setup instructions and follows them automatically.
+
+3. **Answer a few questions** — Claude analyzes your project, then asks about
+   your language/framework, test setup, code style, and workflow preferences.
+
+4. **Done** — Claude generates all configuration files:
+
+   | Generated file | Purpose |
+   | -------------- | ------- |
+   | `CLAUDE.md` | Project overview, commands, style, workflow |
+   | `.claude/settings.json` | Permissions (allow/deny) and optional hooks |
+   | `.claude/rules/*.md` | Code style, testing, architecture, workflow rules |
+   | `.gitignore` entry | Excludes `.claude/settings.local.json` |
+
+   Optionally, Claude can also set up auto-linting hooks, file protection,
+   agent roles, and skill commands if you choose them during setup.
+
+### Option B: Manual setup
+
 1. **Clone this repo**
 
    ```bash
@@ -20,7 +57,6 @@ from day one.
 2. **Copy templates into your project**
 
    ```bash
-   # Copy the essentials
    cp Claude-Code-Templates/templates/CLAUDE.md your-project/CLAUDE.md
    mkdir -p your-project/.claude
    cp Claude-Code-Templates/templates/.claude/settings.json your-project/.claude/settings.json
@@ -35,6 +71,8 @@ from day one.
 
 ```text
 Claude-Code-Templates/
+├── setup-prompt.md        ← Automated setup prompt (for Option A)
+├── setup-prompt-ko.md     ← Korean version of the setup prompt
 ├── templates/             ← Blank scaffolds to copy into your project
 ├── templates/advanced/    ← Advanced feature scaffolds (hooks, agents, skills)
 ├── templates-ko/          ← Korean translations of the templates

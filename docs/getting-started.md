@@ -13,9 +13,11 @@ This guide walks you through setting up Claude Code configuration for your proje
 - Claude Code installed and working (run `claude --version` to confirm)
 - A project you want to configure
 
-## Step 1: Run /init
+## Step 1: Run /init (or Use Automated Setup)
 
 Start by running `/init` inside Claude Code. This is the [officially recommended first step](https://code.claude.com/docs/en/best-practices) -- Claude analyzes your codebase and auto-generates a CLAUDE.md tailored to your project.
+
+**Prefer a one-step setup?** Use our automated setup prompt instead -- it runs `/init`-style analysis plus generates rules, permissions, and optional advanced features in one go. See [Quick Start Option A](../README.md#quick-start) for details.
 
 ```text
 claude
@@ -57,9 +59,10 @@ Open your CLAUDE.md and work through each section. The HTML comments in the scaf
 2. **Build & Run** -- The exact commands to build and run your project.
 3. **Testing** -- How to run tests. Include verification commands Claude can use to check its own work.
 4. **Code Style & Conventions** -- Only rules that differ from language defaults. Be specific.
-5. **Project Structure** -- Key directories and their purposes.
-6. **Important Context** -- Non-obvious things: required services, auth patterns, environment quirks.
-7. **References** -- Link to detailed docs with `@import` syntax.
+5. **Workflow** -- Branch naming, commit conventions, pre-development checklist.
+6. **Project Structure** -- Key directories and their purposes.
+7. **Important Context** -- Non-obvious things: required services, auth patterns, environment quirks.
+8. **References** -- Link to detailed docs with `@import` syntax.
 
 For detailed guidance on what to include and what to leave out, see the [include/exclude table in the CLAUDE.md Guide](claude-md-guide.md#what-to-include-vs-exclude).
 
