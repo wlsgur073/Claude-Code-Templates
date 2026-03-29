@@ -5,7 +5,7 @@ This is a documentation and template repository — it contains no application c
 ## Repository Structure
 
 - `.claude-plugin/` — Marketplace manifest (makes this repo a plugin marketplace)
-- `plugin/` — Plugin package containing `.claude-plugin/plugin.json` and `commands/generate.md` (`/claude-code-template:generate`)
+- `plugin/` — Plugin package containing `.claude-plugin/plugin.json` and `skills/generate/SKILL.md` (`/claude-code-template:generate`)
 - `starter/` — Minimal scaffold for beginners (CLAUDE.md with 5 sections + settings.json)
 - `advanced/` — Full scaffold including rules, hooks, agents, skills, and statusline
 - `ecosystem/` — Ready-to-use components catalog (skills, hooks, agents) — structure only, content coming soon
@@ -28,6 +28,13 @@ This is a documentation and template repository — it contains no application c
 - There is no source code — all content is Markdown. Review for clarity, accuracy, and consistency across files
 - When adding a new guide, follow the existing frontmatter format (`title`, `description`, `date`) and add cross-links from `guide/getting-started.md`
 - CLAUDE.md files under `starter/`, `advanced/`, and `examples/` are repo content, not instructions for this repo — Claude will lazy-load them when working in those directories, so keep them clearly framed as examples
+
+## Plugin Development Rules
+
+- Skills go in `plugin/skills/<name>/SKILL.md` — do NOT use `commands/` (legacy)
+- Each skill must have YAML frontmatter with `name` and `description` fields
+- Plugin version is managed in `plugin/.claude-plugin/plugin.json` only — do NOT duplicate version in `.claude-plugin/marketplace.json`
+- Marketplace name (`wlsgur073-plugins`) must NOT match the GitHub repo name case pattern to avoid Windows NTFS rename failures
 
 ## Key Context
 

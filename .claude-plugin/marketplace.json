@@ -12,7 +12,6 @@
       "name": "claude-code-template",
       "source": "./plugin",
       "description": "Guided Claude Code setup — generates CLAUDE.md, settings, rules, hooks, agents, and skills for any project",
-      "version": "2.1.0",
       "author": {
         "name": "wlsgur073"
       },

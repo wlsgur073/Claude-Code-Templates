@@ -1,4 +1,5 @@
 ---
+name: generate
 description: "Guided Claude Code setup — generates CLAUDE.md, settings.json, rules, and optional hooks/agents/skills for any project"
 ---
 

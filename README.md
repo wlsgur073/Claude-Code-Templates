@@ -34,8 +34,8 @@ from day one.
    | Method | Command |
    | ------ | ------- |
    | Local plugin | `claude --plugin-dir /path/to/Claude-Code-Template/plugin` |
-   | `@` import | `@../Claude-Code-Template/plugin/commands/generate.md` |
-   | Direct paste | Copy the contents of `plugin/commands/generate.md` and paste directly into the conversation |
+   | `@` import | `@../Claude-Code-Template/plugin/skills/generate/SKILL.md` |
+   | Direct paste | Copy the contents of `plugin/skills/generate/SKILL.md` and paste directly into the conversation |
 
 3. **Choose your path** — Claude asks whether this is a new or existing project:
 
@@ -62,8 +62,9 @@ Claude-Code-Template/
 ├── plugin/                ← Plugin package
 │   ├── .claude-plugin/
 │   │   └── plugin.json
-│   └── commands/
-│       └── generate.md    ← Generate command (/claude-code-template:generate)
+│   └── skills/
+│       └── generate/
+│           └── SKILL.md   ← Generate skill (/claude-code-template:generate)
 ├── starter/               ← Minimal scaffold for beginners (CLAUDE.md + settings.json)
 ├── advanced/              ← Full scaffold (rules, hooks, agents, skills, statusline)
 ├── ecosystem/             ← Ready-to-use components catalog (coming soon)
