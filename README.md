@@ -77,8 +77,9 @@ Claude-Code-Template/
 ├── templates/starter/       ← Filled starter example (fictional "TaskFlow" project)
 ├── templates/advanced/      ← Filled advanced example (rules, hooks, agents, skills)
 ├── guide/                   ← Guides explaining each concept
-├── docs/                    ← GitHub community health files (CoC, Contributing, Security)
-└── ko-KR/                   ← Korean translations
+├── docs/                    ← Community health files and project roadmap
+├── ko-KR/                   ← Korean translations (guides, templates)
+└── CHANGELOG.md             ← Version history (Keep a Changelog format)
 ```
 
 | Directory | Purpose |
@@ -86,7 +87,8 @@ Claude-Code-Template/
 | `templates/starter/` | Filled starter example — minimal TaskFlow configuration |
 | `templates/advanced/` | Filled advanced example — rules, hooks, agents, skills |
 | `guide/` | Standalone guides — read any one without the others |
-| `ko-KR/` | Korean translations |
+| `docs/` | Community health files and project [roadmap](docs/ROADMAP.md) |
+| `ko-KR/` | Korean translations (guides, templates) |
 
 ## How Claude Code Memory Works
 
@@ -179,6 +181,7 @@ Claude Code automatically detects `~/.claude/statusline.sh` — no additional co
 
 Contributing? In this repo? Just tell Claude to do it.
 ...Fine, humans are welcome too. Open an issue or PR.
+See [ROADMAP.md](docs/ROADMAP.md) for the project direction and how to propose changes via [GitHub Discussions](https://github.com/wlsgur073/Claude-Code-Template/discussions/categories/roadmap).
 
 ## License
 

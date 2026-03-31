@@ -74,8 +74,9 @@ Claude-Code-Template/
 ├── templates/starter/       ← 스타터 실전 예시 (가상 "TaskFlow" 프로젝트)
 ├── templates/advanced/      ← 고급 기능 실전 예시 (rules, hooks, agents, skills)
 ├── guide/                   ← 가이드 (영어)
-├── docs/                    ← GitHub 커뮤니티 문서 (CoC, Contributing, Security)
-└── ko-KR/                   ← 한국어 번역
+├── docs/                    ← 커뮤니티 문서 및 프로젝트 로드맵
+├── ko-KR/                   ← 한국어 번역 (가이드, 템플릿)
+└── CHANGELOG.md             ← 버전 이력 (Keep a Changelog 형식)
 ```
 
 | 디렉토리 | 용도 |
@@ -83,7 +84,8 @@ Claude-Code-Template/
 | `templates/starter/` | 스타터 실전 예시 — 최소 TaskFlow 설정 |
 | `templates/advanced/` | 고급 실전 예시 — rules, hooks, agents, skills |
 | `guide/` | 독립 가이드 — 각각 따로 읽을 수 있음 |
-| `ko-KR/` | 한국어 번역 |
+| `docs/` | 커뮤니티 문서 및 프로젝트 [로드맵](../docs/ROADMAP.md) |
+| `ko-KR/` | 한국어 번역 (가이드, 템플릿) |
 
 ## Claude Code 메모리 작동 방식
 
@@ -175,6 +177,7 @@ Claude Code가 `~/.claude/statusline.sh`를 자동으로 감지합니다 — 추
 
 참여요? 여기에서요? Claude한테 시키면 되는데.. (피식)
 ...좋아요, 사람도 환영합니다. 이슈나 PR을 열어주세요.
+프로젝트 방향성과 제안은 [ROADMAP.md](../docs/ROADMAP.md)를 확인하고 [GitHub Discussions](https://github.com/wlsgur073/Claude-Code-Template/discussions/categories/roadmap)에서 참여하세요.
 
 ## 라이선스
 
