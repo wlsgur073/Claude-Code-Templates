@@ -35,7 +35,7 @@ To report a security concern:
 ## Response Process
 
 | Step | Timeline |
-|------|----------|
+| ------ | ---------- |
 | Acknowledge report | Within 7 days |
 | Review and assess | Within 14 days |
 | Fix or respond | Within 30 days |

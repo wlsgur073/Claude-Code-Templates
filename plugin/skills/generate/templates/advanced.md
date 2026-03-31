@@ -80,11 +80,11 @@ Ask the user the following questions **one at a time**. For each question, use t
 
 Create all files based on user answers. Follow the generation rules in `references/best-practices.md`.
 
-### Always generate:
+### Always generate
 
 **`CLAUDE.md`** with these sections:
 
-```
+```markdown
 # Project Overview        ← user's description + language/framework
 ## Build & Run            ← exact commands from user answers
 ## Testing                ← test commands + verification commands Claude can run
@@ -98,7 +98,7 @@ Create all files based on user answers. Follow the generation rules in `referenc
 
 The **Development Approach** section must include these rules:
 
-```
+```markdown
 ## Development Approach
 - When a request is vague or ambiguous, do not start implementing immediately
 - First, critically analyze the request: identify assumptions, missing context, and possible interpretations
@@ -123,7 +123,7 @@ The **Development Approach** section must include these rules:
 
 **`.claude/rules/code-style.md`**:
 
-```
+```markdown
 # Code Style
 ## Naming Conventions     ← from user answers
 ## Formatting             ← indentation, line length, trailing commas, etc.
@@ -134,7 +134,7 @@ Include `✗ bad / ✓ good` code examples for non-obvious rules.
 
 **`.claude/rules/testing.md`**:
 
-```
+```markdown
 # Testing Conventions
 ## Test Framework         ← detected framework
 ## Test Structure         ← directory layout, file naming
@@ -144,7 +144,7 @@ Include `✗ bad / ✓ good` code examples for non-obvious rules.
 
 **`.claude/rules/architecture.md`**:
 
-```
+```markdown
 # Architecture
 ## Layer Structure        ← detected layers from project analysis
 ## Dependency Direction   ← inferred dependency rules
@@ -153,7 +153,7 @@ Include `✗ bad / ✓ good` code examples for non-obvious rules.
 
 **`.claude/rules/workflow.md`**:
 
-```
+```markdown
 # Workflow
 ## Pre-Development Checklist
 - Read relevant CLAUDE.md sections
@@ -170,11 +170,11 @@ Include `✗ bad / ✓ good` code examples for non-obvious rules.
 
 **`.gitignore`** — append this line if not already present:
 
-```
+```gitignore
 .claude/settings.local.json
 ```
 
-### Conditionally generate (only if user opted in):
+### Conditionally generate (only if user opted in)
 
 **Auto-linting hooks** — add `hooks` key to `.claude/settings.json`:
 

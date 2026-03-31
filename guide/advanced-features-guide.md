@@ -12,7 +12,7 @@ Three features for teams that have outgrown basic CLAUDE.md + rules. Start with 
 
 Hooks are shell commands that run automatically before or after Claude uses a tool. Define them in `settings.json` under the `hooks` key. Use them for auto-linting, auto-formatting, file protection, or type checking.
 
-### Configuration
+### Hook Configuration
 
 ```json
 {
@@ -58,7 +58,7 @@ Key concepts:
 
 Agents are custom role definitions in `.claude/agents/` with specialized scope, toolset, and model. Useful for role specialization, scope constraints, and parallel dispatch in large codebases.
 
-### Configuration
+### Agent Configuration
 
 Create `.claude/agents/<name>.md` with YAML frontmatter:
 
@@ -96,7 +96,7 @@ Key fields:
 
 Skills are reusable multi-step workflows in `.claude/skills/`. Each becomes a slash command that automates repeatable processes like scaffolding features or adding components.
 
-### Configuration
+### Skill Configuration
 
 Create `.claude/skills/<skill-name>/SKILL.md`:
 

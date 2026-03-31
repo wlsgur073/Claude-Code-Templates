@@ -15,7 +15,7 @@ from day one.
 
 1. **Add the marketplace and install the plugin** in Claude Code:
 
-   ```
+   ```text
    claude
    > /plugin marketplace add wlsgur073/Claude-Code-Template
    > /plugin install claude-code-template@wlsgur073-plugins
@@ -23,7 +23,7 @@ from day one.
 
 2. **Run the setup command** in your project:
 
-   ```
+   ```text
    cd your-project
    claude
    > /claude-code-template:generate
@@ -160,7 +160,7 @@ Browse available plugins with `/plugin` in Claude Code, or see
 
 Customize the Claude Code status bar to show model, context usage, cost, duration, and git branch at a glance:
 
-```
+```text
 [Opus 4.6 (1M context)] 📁 my-project
  🌿 feature/auth | ████████░░ 80% | $1.25 | ⏱️ 3m 42s
 ```

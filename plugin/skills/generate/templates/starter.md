@@ -32,7 +32,7 @@ Ask the following questions **one at a time**.
 3. **Build, run, and test commands** — Suggest sensible defaults based on Question 1, then ask the user to confirm or customize:
 
    | Language | build | dev | test | lint |
-   |----------|-------|-----|------|------|
+   | ---------- | ------- | ----- | ------ | ------ |
    | Node.js | `npm install` | `npm run dev` | `npm test` | `npm run lint` |
    | Python | `pip install -e .` | `uvicorn main:app --reload` | `pytest` | `ruff check .` |
    | Go | `go build ./...` | `go run .` | `go test ./...` | `golangci-lint run` |
@@ -48,11 +48,11 @@ Ask the following questions **one at a time**.
 
 Create files based on user answers. Follow the generation rules in `references/best-practices.md`.
 
-### Generate:
+### Generate
 
 **`CLAUDE.md`** with 6 sections:
 
-```
+```markdown
 # Project Overview        ← user's description + language/framework from Q1-Q2
 ## Build & Run            ← exact commands from Q3
 ## Testing                ← test commands from Q3
@@ -63,7 +63,7 @@ Create files based on user answers. Follow the generation rules in `references/b
 
 The **Development Approach** section must include these rules:
 
-```
+```markdown
 ## Development Approach
 - When a request is vague or ambiguous, do not start implementing immediately
 - First, critically analyze the request: identify assumptions, missing context, and possible interpretations
@@ -88,7 +88,7 @@ The **Development Approach** section must include these rules:
 
 **`.gitignore`** — append this line if not already present:
 
-```
+```gitignore
 .claude/settings.local.json
 ```
 
