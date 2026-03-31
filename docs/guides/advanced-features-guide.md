@@ -1,6 +1,6 @@
 ---
 title: "Advanced Features"
-description: "Hooks, agents, and skills — extending Claude Code beyond basic configuration"
+description: "Hooks, agents, and skills -- extending Claude Code beyond basic configuration"
 date: 2026-03-23
 ---
 
@@ -28,18 +28,6 @@ Hooks are shell commands that run automatically before or after Claude uses a to
           }
         ]
       }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo \"$CLAUDE_FILE_PATH\" | grep -qE '\\.env' && echo 'BLOCK: Protected file' && exit 1 || exit 0",
-            "statusMessage": "Checking for protected files"
-          }
-        ]
-      }
     ]
   }
 }
@@ -51,7 +39,7 @@ Key concepts:
 - **`$CLAUDE_FILE_PATH`** / **`$CLAUDE_PROJECT_DIR`** -- injected path variables
 - **`statusMessage`** -- text shown in the UI while the hook runs
 - **`PreToolUse` + `exit 1`** blocks the action; **`PostToolUse` + `|| true`** runs after it
-- Other events: `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStop`, `UserPromptSubmit`, `PreCompact` — see [hooks docs](https://code.claude.com/docs/en/hooks) for all event types
+- Other events: `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStop`, `UserPromptSubmit`, `PreCompact` -- see [hooks docs](https://code.claude.com/docs/en/hooks) for all event types
 - **Hook types:** `"type": "command"` (shell) or `"type": "prompt"` (LLM-driven, for `PreToolUse`, `Stop`, `SubagentStop`, `UserPromptSubmit`)
 
 ## Agents
@@ -89,8 +77,6 @@ Key fields:
 - **`tools`** -- allowed tools (Read, Edit, Write, Bash, Grep, Glob, etc.)
 - **`model`** -- which model (`sonnet`, `opus`, `haiku`, `inherit`)
 - **`color`** -- UI display color (`blue`, `cyan`, `green`, `yellow`, `magenta`, `red`)
-
-> **Example:** See `templates/advanced/.claude/agents/backend-developer.md` for a complete agent definition.
 
 ## Skills
 
@@ -134,8 +120,6 @@ Key fields:
 Skills come in two types: **user-invoked** (slash command) and **model-invoked** (auto-triggered by Claude). Model-invoked descriptions should include trigger phrases: `"Use when the user asks to 'do X' or 'do Y'."` Skills can include supporting files alongside SKILL.md: `references/`, `examples/`, `scripts/`.
 
 > **Note:** The legacy `commands/` directory is deprecated. Use `skills/<name>/SKILL.md` for all skill types.
-
-> **Example:** See `templates/advanced/.claude/skills/add-endpoint/` for a complete skill with references.
 
 ## Further Reading
 

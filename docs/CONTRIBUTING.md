@@ -18,11 +18,7 @@ We welcome the following types of contributions:
 
 ## Before You Start
 
-Please read the root [`CLAUDE.md`](../CLAUDE.md) file — it contains the detailed contribution rules for this repository, including:
-
-- All templates must reference the fictional "TaskFlow" project
-- Templates and guides use YAML frontmatter (`title`, `description`, `date`)
-- Guides should stay under ~130 lines
+Please read the root [`CLAUDE.md`](../CLAUDE.md) file for the full contribution rules (template conventions, frontmatter requirements, line limits).
 
 ## Getting Started
 

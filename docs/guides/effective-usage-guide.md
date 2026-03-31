@@ -105,9 +105,9 @@ Repeated corrections pollute context with failed attempts. Each correction adds 
 
 ### 3. Over-Specified CLAUDE.md
 
-A 500-line CLAUDE.md means Claude pays less attention to each line. Important rules get lost in the noise.
+Long CLAUDE.md files dilute Claude's attention across too many instructions.
 
-**Fix:** Ruthlessly prune. For each line, ask: "Would removing this cause Claude to make mistakes?" If not, cut it.
+**Fix:** Ruthlessly prune, or split into [rule files](rules-guide.md). See the [CLAUDE.md Guide](claude-md-guide.md#common-mistakes) for details.
 
 ### 4. Trust-Then-Verify Gap
 

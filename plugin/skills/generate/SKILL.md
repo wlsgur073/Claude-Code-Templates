@@ -24,7 +24,7 @@ Before scanning or asking detailed questions, ask exactly one question:
 
 ## Route to Path
 
-Based on the user's choice, read the generation rules and the appropriate path file:
+Based on the user's choice, read the generation rules and the appropriate path file (Phases 1–3 are defined in each path file):
 
 **If the user chooses (b) New/empty project:**
 

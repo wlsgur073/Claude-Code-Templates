@@ -11,6 +11,7 @@
 ## Design
 
 ### Phase 구성
+
 1. **Phase 1: Essential Checks** — 빠지면 Claude 성능에 직접 영향
    - CLAUDE.md 존재 여부 및 테스트/빌드 명령어 포함 확인
    - settings.json deny 패턴 (.env, secrets) 확인
@@ -28,7 +29,9 @@
    - 반복 작업 감지 시 skill 생성 제안
 
 ### 출력 형식
+
 각 Phase 결과를 요약 테이블로 출력하고, 마지막에 종합 개선 제안 제시.
 
 ### 파일
+
 - `plugin/skills/audit/SKILL.md` — 단일 파일로 시작, 비대해지면 모듈화

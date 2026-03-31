@@ -5,7 +5,7 @@ This is a documentation and template repository — it contains no application c
 ## Repository Structure
 
 - `.claude-plugin/` — Marketplace manifest (makes this repo a plugin marketplace)
-- `plugin/` — Plugin package containing `.claude-plugin/plugin.json`, `skills/generate/SKILL.md` (`/claude-code-template:generate`), and `hooks/hooks.json`
+- `plugin/` — Plugin package containing `.claude-plugin/plugin.json`, `skills/generate/SKILL.md` (`/claude-code-template:generate`), `skills/audit/SKILL.md` (`/claude-code-template:audit`), and `hooks/hooks.json`
 - `CHANGELOG.md` — Version history in Keep a Changelog format
 - `templates/starter/` — Minimal filled example for TaskFlow (5-section CLAUDE.md + basic settings.json)
 - `templates/advanced/` — Full filled example for TaskFlow (rules, hooks, agents, skills)
@@ -32,4 +32,3 @@ This is a documentation and template repository — it contains no application c
 - `allowed-tools` is no longer supported in skill frontmatter; agents use `tools` for tool restriction
 - Plugin version is managed in `plugin/.claude-plugin/plugin.json` only — do NOT duplicate version in `.claude-plugin/marketplace.json`
 - Marketplace name (`wlsgur073-plugins`) must NOT match the GitHub repo name case pattern to avoid Windows NTFS rename failures
-

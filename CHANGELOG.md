@@ -9,16 +9,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-03-31
+
 ### Added
 
+- `/audit` skill for validating Claude Code configuration health (`plugin/skills/audit/SKILL.md`)
 - `docs/ROADMAP.md` with governance process for community-driven roadmap proposals
 - Roadmap proposals section in `docs/CONTRIBUTING.md`
+- `docs/plans/` for design and planning documents
 
 ### Changed
+
 - Restructured directories: `guide/` → `docs/guides/`, `ko-KR/` → `docs/i18n/ko-KR/`
-- Added `docs/plans/` for design and planning documents
 - Cross-references from advanced features guide to template examples (agents, skills)
 - Korean translations for all template files (`ko-KR/templates/`)
+- Removed Current Priorities section from ROADMAP.md
+- Documentation quality audit: improved clarity, conciseness, accuracy, and consistency across 14 files
+- Trimmed `advanced-features-guide.md` to meet 130-line guide limit (144 → 128)
+- Normalized em-dash style (`—` → `--`) across all guides
+- Unified frontmatter date format (quoted → unquoted) across templates
+
+### Fixed
+
+- Removed deprecated `allowed-tools` from all skill frontmatter
+- Updated stale `ko-KR/` path references in CONTRIBUTING.md
+- Added missing `/audit` skill references to README.md and CLAUDE.md
+- Removed redundant explanations in directory-structure-guide.md and CONTRIBUTING.md
 
 ## [2.3.0] - 2026-03-30
 

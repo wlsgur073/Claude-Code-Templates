@@ -17,17 +17,17 @@ This guide walks you through setting up Claude Code configuration for your proje
 
 | Option | What it does | Best for |
 | ------ | ------------ | -------- |
-| `/init` | Analyzes code, generates basic CLAUDE.md | Quick start — good for many projects |
+| `/init` | Analyzes code, generates basic CLAUDE.md | Quick start -- good for many projects |
 | `/claude-code-template:generate` | Guided interview → CLAUDE.md + settings + rules + optional features | Comprehensive setup ([Quick Start](../README.md#quick-start)) |
 
-**`/init`** is the [officially recommended first step](https://code.claude.com/docs/en/best-practices) — Claude analyzes your codebase and auto-generates a CLAUDE.md:
+**`/init`** is the [officially recommended first step](https://code.claude.com/docs/en/best-practices) -- Claude analyzes your codebase and auto-generates a CLAUDE.md:
 
 ```text
 claude
 > /init
 ```
 
-**`/claude-code-template:generate`** runs `/init`-style analysis plus generates rules, permissions, and optional advanced features. Install the plugin first (`/plugin marketplace add wlsgur073/Claude-Code-Template`, then `/plugin install claude-code-template@wlsgur073-plugins`). **Using both?** Run `/init` first, then `/claude-code-template:generate` choosing "Existing project" — it detects your existing CLAUDE.md and merges rather than overwrites.
+**`/claude-code-template:generate`** runs `/init`-style analysis plus generates rules, permissions, and optional advanced features. Install the plugin first (`/plugin marketplace add wlsgur073/Claude-Code-Template`, then `/plugin install claude-code-template@wlsgur073-plugins`). **Using both?** Run `/init` first, then `/claude-code-template:generate` choosing "Existing project" -- it detects your existing CLAUDE.md and merges rather than overwrites.
 
 ## Step 2: Copy the Templates (Manual Alternative)
 

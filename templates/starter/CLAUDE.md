@@ -1,7 +1,7 @@
 ---
 title: "TaskFlow CLAUDE.md (Starter)"
 description: "Minimal 6-section example for a Node.js/Express REST API project"
-date: "2026-03-18"
+date: 2026-03-18
 ---
 
 # Project Overview

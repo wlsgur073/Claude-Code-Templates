@@ -73,8 +73,6 @@ Add this to your project's `.gitignore`:
 .claude/settings.local.json
 ```
 
-Add this line to your project's `.gitignore` to exclude personal settings.
-
 ## The Three Systems
 
 Claude Code has three distinct systems that are all loaded at session start but serve different purposes:

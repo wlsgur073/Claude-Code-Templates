@@ -1,7 +1,7 @@
 ---
-title: "TaskFlow CLAUDE.md"
+title: "TaskFlow CLAUDE.md (Advanced)"
 description: "Example root CLAUDE.md for a Node.js/Express REST API project"
-date: "2026-03-18"
+date: 2026-03-18
 ---
 
 # Project Overview

@@ -70,10 +70,12 @@ Claude-Code-Template/
 │   │   ├── hooks.json       ← SessionStart hook
 │   │   └── session-start.sh
 │   └── skills/
-│       └── generate/
-│           ├── SKILL.md     ← Generate skill (/claude-code-template:generate)
-│           ├── references/  ← Generation best practices
-│           └── templates/   ← Starter & Advanced path instructions
+│       ├── generate/
+│       │   ├── SKILL.md     ← Generate skill (/claude-code-template:generate)
+│       │   ├── references/  ← Generation best practices
+│       │   └── templates/   ← Starter & Advanced path instructions
+│       └── audit/
+│           └── SKILL.md     ← Audit skill (/claude-code-template:audit)
 ├── templates/starter/       ← Filled starter example (fictional "TaskFlow" project)
 ├── templates/advanced/      ← Filled advanced example (rules, hooks, agents, skills)
 ├── docs/
@@ -95,15 +97,7 @@ Claude-Code-Template/
 
 ## How Claude Code Memory Works
 
-Claude Code has a layered memory system:
-
-- **CLAUDE.md** — instructions *you* write. Loaded every session.
-  Locations: project root, `.claude/`, user home, managed policy.
-- **`.claude/rules/`** — modular instruction files, optionally scoped
-  to specific file paths. Loaded every session or on file access.
-- **Auto memory** — notes *Claude* writes for itself as you work.
-  Stored at `~/.claude/projects/<project>/memory/`. First 200 lines
-  of MEMORY.md loaded every session.
+Claude Code uses a layered memory system: CLAUDE.md (your instructions), `.claude/rules/` (modular rule files), and auto memory (Claude's own notes). See the [Directory Structure Guide](docs/guides/directory-structure-guide.md) for details.
 
 > **The #1 Rule:** Give Claude a way to verify its work — include test commands,
 > lint commands, and build commands in your CLAUDE.md. This is the single

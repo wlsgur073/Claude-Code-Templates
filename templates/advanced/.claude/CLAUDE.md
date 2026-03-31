@@ -1,7 +1,7 @@
 ---
 title: "TaskFlow .claude/CLAUDE.md (Alternative Location)"
 description: "Demo stub showing the .claude/ placement option for project instructions"
-date: "2026-03-18"
+date: 2026-03-18
 ---
 
 <!-- This is the ALTERNATIVE location for project instructions (.claude/CLAUDE.md). -->
