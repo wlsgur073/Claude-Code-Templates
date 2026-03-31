@@ -9,7 +9,7 @@ configuration files through a guided interview.
 **Audience:** Developers new to Claude Code who want a working configuration
 from day one.
 
-**[한국어 README](ko-KR/README.md)**
+**[한국어 README](docs/i18n/ko-KR/README.md)**
 
 ## Quick Start
 
@@ -76,9 +76,11 @@ Claude-Code-Template/
 │           └── templates/   ← Starter & Advanced path instructions
 ├── templates/starter/       ← Filled starter example (fictional "TaskFlow" project)
 ├── templates/advanced/      ← Filled advanced example (rules, hooks, agents, skills)
-├── guide/                   ← Guides explaining each concept
-├── docs/                    ← Community health files and project roadmap
-├── ko-KR/                   ← Korean translations (guides, templates)
+├── docs/
+│   ├── guides/              ← Guides explaining each concept
+│   ├── i18n/ko-KR/          ← Korean translations (guides, templates)
+│   ├── plans/               ← Design and planning documents
+│   └── *.md                 ← Community health files and project roadmap
 └── CHANGELOG.md             ← Version history (Keep a Changelog format)
 ```
 
@@ -86,9 +88,10 @@ Claude-Code-Template/
 | ------------- | --------- |
 | `templates/starter/` | Filled starter example — minimal TaskFlow configuration |
 | `templates/advanced/` | Filled advanced example — rules, hooks, agents, skills |
-| `guide/` | Standalone guides — read any one without the others |
-| `docs/` | Community health files and project [roadmap](docs/ROADMAP.md) |
-| `ko-KR/` | Korean translations (guides, templates) |
+| `docs/guides/` | Standalone guides — read any one without the others |
+| `docs/i18n/ko-KR/` | Korean translations (guides, templates) |
+| `docs/plans/` | Design and planning documents |
+| `docs/*.md` | Community health files and project [roadmap](docs/ROADMAP.md) |
 
 ## How Claude Code Memory Works
 
@@ -112,13 +115,13 @@ Start here, then follow the path that matches your level:
 
 | Step | Guide | Who needs it |
 | ---- | ----- | ------------ |
-| 1 | [Getting Started](guide/getting-started.md) | Everyone — setup walkthrough |
-| 2 | [CLAUDE.md Guide](guide/claude-md-guide.md) | Everyone — writing effective instructions |
-| 3 | [Settings Guide](guide/settings-guide.md) | Everyone — permissions and preferences |
-| 4 | [Rules Guide](guide/rules-guide.md) | When CLAUDE.md exceeds ~100 lines |
-| 5 | [Directory Structure](guide/directory-structure-guide.md) | When you want to understand `.claude/` |
-| 6 | [Effective Usage](guide/effective-usage-guide.md) | After your first day with Claude Code |
-| 7 | [Advanced Features](guide/advanced-features-guide.md) | When you need hooks, agents, or skills |
+| 1 | [Getting Started](docs/guides/getting-started.md) | Everyone — setup walkthrough |
+| 2 | [CLAUDE.md Guide](docs/guides/claude-md-guide.md) | Everyone — writing effective instructions |
+| 3 | [Settings Guide](docs/guides/settings-guide.md) | Everyone — permissions and preferences |
+| 4 | [Rules Guide](docs/guides/rules-guide.md) | When CLAUDE.md exceeds ~100 lines |
+| 5 | [Directory Structure](docs/guides/directory-structure-guide.md) | When you want to understand `.claude/` |
+| 6 | [Effective Usage](docs/guides/effective-usage-guide.md) | After your first day with Claude Code |
+| 7 | [Advanced Features](docs/guides/advanced-features-guide.md) | When you need hooks, agents, or skills |
 
 ## Recommended Plugins
 

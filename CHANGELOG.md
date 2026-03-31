@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - `docs/ROADMAP.md` with governance process for community-driven roadmap proposals
 - Roadmap proposals section in `docs/CONTRIBUTING.md`
+
+### Changed
+- Restructured directories: `guide/` → `docs/guides/`, `ko-KR/` → `docs/i18n/ko-KR/`
+- Added `docs/plans/` for design and planning documents
 - Cross-references from advanced features guide to template examples (agents, skills)
 - Korean translations for all template files (`ko-KR/templates/`)
 

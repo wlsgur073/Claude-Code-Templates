@@ -18,7 +18,7 @@ Thumbs.db
 .claude/settings.local.json
 
 # Internal plans and design specs (not user-facing)
-plans/
+/plans/
 docs/superpowers/
 
 # Node (if contributors install anything for tooling)

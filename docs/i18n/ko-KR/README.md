@@ -73,9 +73,11 @@ Claude-Code-Template/
 │           └── templates/   ← Starter & Advanced 경로 지침
 ├── templates/starter/       ← 스타터 실전 예시 (가상 "TaskFlow" 프로젝트)
 ├── templates/advanced/      ← 고급 기능 실전 예시 (rules, hooks, agents, skills)
-├── guide/                   ← 가이드 (영어)
-├── docs/                    ← 커뮤니티 문서 및 프로젝트 로드맵
-├── ko-KR/                   ← 한국어 번역 (가이드, 템플릿)
+├── docs/
+│   ├── guides/              ← 가이드
+│   ├── i18n/ko-KR/          ← 한국어 번역 (가이드, 템플릿)
+│   ├── plans/               ← 설계 및 계획 문서
+│   └── *.md                 ← 커뮤니티 문서 및 프로젝트 로드맵
 └── CHANGELOG.md             ← 버전 이력 (Keep a Changelog 형식)
 ```
 
@@ -83,9 +85,10 @@ Claude-Code-Template/
 | ------------- | --------- |
 | `templates/starter/` | 스타터 실전 예시 — 최소 TaskFlow 설정 |
 | `templates/advanced/` | 고급 실전 예시 — rules, hooks, agents, skills |
-| `guide/` | 독립 가이드 — 각각 따로 읽을 수 있음 |
-| `docs/` | 커뮤니티 문서 및 프로젝트 [로드맵](../docs/ROADMAP.md) |
-| `ko-KR/` | 한국어 번역 (가이드, 템플릿) |
+| `docs/guides/` | 독립 가이드 — 각각 따로 읽을 수 있음 |
+| `docs/i18n/ko-KR/` | 한국어 번역 (가이드, 템플릿) |
+| `docs/plans/` | 설계 및 계획 문서 |
+| `docs/*.md` | 커뮤니티 문서 및 프로젝트 [로드맵](../../ROADMAP.md) |
 
 ## Claude Code 메모리 작동 방식
 
@@ -109,13 +112,13 @@ Claude Code는 계층형 메모리 시스템으로 동작합니다:
 
 | 단계 | 가이드 | 필요한 사람 |
 | ---- | ----- | ---------- |
-| 1 | [시작하기](guide/getting-started.md) | 모든 사용자 — 설정 안내 |
-| 2 | [CLAUDE.md 가이드](guide/claude-md-guide.md) | 모든 사용자 — 효과적인 지시 작성법 |
-| 3 | [설정 가이드](guide/settings-guide.md) | 모든 사용자 — 권한 및 환경설정 |
-| 4 | [규칙 가이드](guide/rules-guide.md) | CLAUDE.md가 ~100줄을 초과할 때 |
-| 5 | [디렉토리 구조](guide/directory-structure-guide.md) | `.claude/` 구조를 이해하고 싶을 때 |
-| 6 | [효과적인 사용법](guide/effective-usage-guide.md) | Claude Code를 하루 사용한 후 |
-| 7 | [고급 기능](guide/advanced-features-guide.md) | 훅, 에이전트, 스킬이 필요할 때 |
+| 1 | [시작하기](guides/getting-started.md) | 모든 사용자 — 설정 안내 |
+| 2 | [CLAUDE.md 가이드](guides/claude-md-guide.md) | 모든 사용자 — 효과적인 지시 작성법 |
+| 3 | [설정 가이드](guides/settings-guide.md) | 모든 사용자 — 권한 및 환경설정 |
+| 4 | [규칙 가이드](guides/rules-guide.md) | CLAUDE.md가 ~100줄을 초과할 때 |
+| 5 | [디렉토리 구조](guides/directory-structure-guide.md) | `.claude/` 구조를 이해하고 싶을 때 |
+| 6 | [효과적인 사용법](guides/effective-usage-guide.md) | Claude Code를 하루 사용한 후 |
+| 7 | [고급 기능](guides/advanced-features-guide.md) | 훅, 에이전트, 스킬이 필요할 때 |
 
 ## 추천 플러그인
 
@@ -177,8 +180,8 @@ Claude Code가 `~/.claude/statusline.sh`를 자동으로 감지합니다 — 추
 
 참여요? 여기에서요? Claude한테 시키면 되는데.. (피식)
 ...좋아요, 사람도 환영합니다. 이슈나 PR을 열어주세요.
-프로젝트 방향성과 제안은 [ROADMAP.md](../docs/ROADMAP.md)를 확인하고 [GitHub Discussions](https://github.com/wlsgur073/Claude-Code-Template/discussions/categories/roadmap)에서 참여하세요.
+프로젝트 방향성과 제안은 [ROADMAP.md](../../ROADMAP.md)를 확인하고 [GitHub Discussions](https://github.com/wlsgur073/Claude-Code-Template/discussions/categories/roadmap)에서 참여하세요.
 
 ## 라이선스
 
-MIT — [LICENSE](../LICENSE) 참조.
+MIT — [LICENSE](../../../LICENSE) 참조.

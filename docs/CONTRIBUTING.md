@@ -10,9 +10,9 @@ This is a **documentation and template repository** — it contains no applicati
 
 We welcome the following types of contributions:
 
-- **Guide improvements** — Clarify explanations, fix inaccuracies, or add missing details in `guide/`
+- **Guide improvements** — Clarify explanations, fix inaccuracies, or add missing details in `docs/guides/`
 - **Template improvements** — Expand or refine the TaskFlow examples in `templates/`
-- **Translations** — Add or improve Korean translations in `ko-KR/`
+- **Translations** — Add or improve Korean translations in `docs/i18n/ko-KR/`
 - **Roadmap proposals** — Suggest new directions or features via [Discussions (Roadmap category)](https://github.com/wlsgur073/Claude-Code-Template/discussions/categories/roadmap). See [ROADMAP.md](ROADMAP.md) for details.
 - **Typo and grammar fixes** — Always welcome
 
