@@ -6,10 +6,11 @@ This is a documentation and template repository — it contains no application c
 
 - `.claude-plugin/` — Marketplace manifest (makes this repo a plugin marketplace)
 - `plugin/` — Plugin package containing `.claude-plugin/plugin.json`, `skills/generate/SKILL.md` (`/claude-code-template:generate`), and `hooks/hooks.json`
+- `CHANGELOG.md` — Version history in Keep a Changelog format
 - `templates/starter/` — Minimal filled example for TaskFlow (5-section CLAUDE.md + basic settings.json)
 - `templates/advanced/` — Full filled example for TaskFlow (rules, hooks, agents, skills)
 - `guide/` — Guides covering each Claude Code configuration concept (CLAUDE.md writing, rules, settings, directory structure, effective usage patterns)
-- `ko-KR/` — Korean translations (`guide/`, `README.md`)
+- `ko-KR/` — Korean translations (`guide/`, `templates/`, `README.md`)
 - `docs/` — GitHub community health files (CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md, PRIVACY.md)
 - `.claude/` — This repo's own Claude Code settings
 
