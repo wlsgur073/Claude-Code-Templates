@@ -6,11 +6,12 @@ DIR=$(echo "$input" | jq -r '.workspace.current_dir')
 PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
 DURATION_MS=$(echo "$input" | jq -r '.cost.total_duration_ms // 0')
 FIVE_H=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+FIVE_H_RESET=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 
 CYAN='\033[36m'; GREEN='\033[32m'; YELLOW='\033[33m'; RED='\033[31m'
 GOLD='\033[38;5;222m'; RESET='\033[0m'
 
-# 컨텍스트 사용량에 따라 바 색상 선택
+# Pick bar color based on context usage
 if [ "$PCT" -ge 90 ]; then BAR_COLOR="$RED"
 elif [ "$PCT" -ge 70 ]; then BAR_COLOR="$YELLOW"
 else BAR_COLOR="$GREEN"; fi
@@ -24,10 +25,28 @@ MINS=$((DURATION_MS / 60000)); SECS=$(((DURATION_MS % 60000) / 1000))
 BRANCH=""
 git rev-parse --git-dir > /dev/null 2>&1 && BRANCH=" 🌿 $(git branch --show-current 2>/dev/null)"
 
-DIR_NAME=$(basename "${DIR//\\//}")
+# Build display path: full path with ~ substitution, abbreviate if too long
+FULL_PATH="${DIR//\\//}"
+# Convert Windows drive letter (C:/) to Unix format (/c/)
+if [[ "$FULL_PATH" =~ ^([A-Za-z]):/ ]]; then
+    DRIVE_LOWER=$(echo "${BASH_REMATCH[1]}" | tr 'A-Z' 'a-z')
+    FULL_PATH="/${DRIVE_LOWER}${FULL_PATH:2}"
+fi
+if [[ "$FULL_PATH" == "$HOME"* ]]; then
+    DISPLAY_PATH="~${FULL_PATH#$HOME}"
+else
+    DISPLAY_PATH="$FULL_PATH"
+fi
 
-# 라인 1: 모델 + 5시간 사용량 바
-# 5시간 사용량 바 (마젠타 팔레트, 컨텍스트의 초록/노랑/빨강과 구별)
+MAX_PATH_LEN=40
+if [ ${#DISPLAY_PATH} -gt $MAX_PATH_LEN ]; then
+    CURRENT=$(basename "$DISPLAY_PATH")
+    PARENT=$(basename "$(dirname "$DISPLAY_PATH")")
+    DISPLAY_PATH="~/**/${PARENT}/${CURRENT}"
+fi
+
+# Line 1: current dir + model + 5h rate limit bar
+# 5h usage bar (magenta palette, distinct from context's green/yellow/red)
 USAGE=""
 if [ -n "$FIVE_H" ]; then
     FIVE_H_INT=$(printf '%.0f' "$FIVE_H")
@@ -37,9 +56,21 @@ if [ -n "$FIVE_H" ]; then
     UF=$((FIVE_H_INT / 10)); UE=$((10 - UF))
     printf -v UFILL "%${UF}s"; printf -v UPAD "%${UE}s"
     UBAR="${UFILL// /█}${UPAD// /░}"
-    USAGE=" | ⚡ ${UC}${UBAR}${RESET} ${FIVE_H_INT}%"
+    RESET_STR=""
+    if [ -n "$FIVE_H_RESET" ]; then
+        NOW=$(date +%s)
+        REMAINING=$((FIVE_H_RESET - NOW))
+        if [ $REMAINING -gt 0 ]; then
+            RESET_H=$((REMAINING / 3600))
+            RESET_M=$(((REMAINING % 3600) / 60))
+            RESET_STR=" (${RESET_H}h ${RESET_M}m)"
+        else
+            RESET_STR=" (reset)"
+        fi
+    fi
+    USAGE=" | ⚡ ${UC}${UBAR}${RESET} ${FIVE_H_INT}%${RESET_STR}"
 fi
-printf '%b\n' "${CYAN}[$MODEL]${RESET}${USAGE} | 📁 ${DIR_NAME}"
+printf '%b\n' "📁 ${DISPLAY_PATH} | ${CYAN}[$MODEL]${RESET}${USAGE}"
 
-# 라인 2: git 브랜치 + 컨텍스트 바 + 소요 시간
-printf '%b\n' "${BRANCH:+$BRANCH | }${BAR_COLOR}${BAR}${RESET} ${PCT}% | ⏱️ ${MINS}m ${SECS}s"
+# Line 2: git branch + context bar + duration
+printf '%b\n' "${BRANCH:+$BRANCH | }📊 ${BAR_COLOR}${BAR}${RESET} ${PCT}% | ⏱️ ${MINS}m ${SECS}s"
