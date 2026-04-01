@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../assets/banner.svg" alt="Claude Code Template" width="700"/>
+  <img src="../../../assets/banner.svg" alt="Claude Code Template" width="700"/>
 </p>
 
 Claude Code 설정을 위한 스타터 템플릿과 가이드. 플러그인을 설치하고
@@ -67,10 +67,12 @@ Claude-Code-Template/
 │   │   ├── hooks.json       ← SessionStart 훅
 │   │   └── session-start.sh
 │   └── skills/
-│       └── generate/
-│           ├── SKILL.md     ← 생성 스킬 (/claude-code-template:generate)
-│           ├── references/  ← 생성 모범 사례
-│           └── templates/   ← Starter & Advanced 경로 지침
+│       ├── generate/
+│       │   ├── SKILL.md     ← 생성 스킬 (/claude-code-template:generate)
+│       │   ├── references/  ← 생성 모범 사례
+│       │   └── templates/   ← Starter & Advanced 경로 지침
+│       └── audit/
+│           └── SKILL.md     ← 감사 스킬 (/claude-code-template:audit)
 ├── templates/starter/       ← 스타터 실전 예시 (가상 "TaskFlow" 프로젝트)
 ├── templates/advanced/      ← 고급 기능 실전 예시 (rules, hooks, agents, skills)
 ├── docs/
@@ -92,15 +94,7 @@ Claude-Code-Template/
 
 ## Claude Code 메모리 작동 방식
 
-Claude Code는 계층형 메모리 시스템으로 동작합니다:
-
-- **CLAUDE.md** — *사용자가* 작성하는 지시사항. 매 세션마다 로드됨.
-  위치: 프로젝트 루트, `.claude/`, 사용자 홈, managed policy.
-- **`.claude/rules/`** — 모듈형 지시 파일. 특정 파일 경로에 범위를 제한할 수 있음.
-  매 세션 또는 파일 접근 시 로드됨.
-- **Auto memory** — 작업 중 *Claude가 직접* 작성하는 메모.
-  `~/.claude/projects/<project>/memory/`에 저장. MEMORY.md의 처음 200줄이
-  매 세션마다 로드됨.
+Claude Code는 계층형 메모리 시스템으로 동작합니다: CLAUDE.md (사용자의 지시사항), `.claude/rules/` (모듈형 규칙 파일), 자동 메모리 (Claude가 직접 작성하는 메모). 자세한 내용은 [디렉토리 구조 가이드](guides/directory-structure-guide.md)를 참고하세요.
 
 > **가장 중요한 원칙:** Claude가 자기 작업을 스스로 검증할 수 있게 하세요 —
 > CLAUDE.md에 테스트, 린트, 빌드 명령어를 포함하세요.

@@ -105,9 +105,9 @@ from src/api/middleware.ts. Follow the pattern in src/api/users.ts.
 
 ### 3. 과도하게 지정된 CLAUDE.md
 
-500줄짜리 CLAUDE.md는 Claude가 각 줄에 덜 집중하게 만듭니다. 중요한 규칙이 노이즈에 묻힙니다.
+긴 CLAUDE.md 파일은 너무 많은 지침에 걸쳐 Claude의 주의를 분산시킵니다.
 
-**해결:** 가차 없이 정리하세요. 각 줄에 대해 "이것을 제거하면 Claude가 실수할까?"라고 자문하세요. 아니라면 삭제하세요.
+**해결:** 가차 없이 정리하거나, [규칙 파일](rules-guide.md)로 분리하세요. 자세한 내용은 [CLAUDE.md 가이드](claude-md-guide.md#common-mistakes)를 참고하세요.
 
 ### 4. 신뢰 후 검증 격차
 
