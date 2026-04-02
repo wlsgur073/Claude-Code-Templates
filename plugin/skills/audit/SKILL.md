@@ -51,6 +51,18 @@ Check if CLAUDE.md has a project description in the first 20 lines (a heading fo
 - Has description → **PASS**
 - Empty or only commands → **WARN** — "Add a brief project overview so Claude understands context"
 
+### 1.6 Security Rules
+
+Check if the project has security-related configuration:
+
+1. Check for `.claude/rules/security.md` or any rule file containing "security" in its filename
+2. If no dedicated file, search CLAUDE.md and all rule files for security-related keywords (authentication, validation, secrets, sanitize, XSS, injection)
+
+Scoring:
+- Dedicated security rule file exists → **PASS**
+- No dedicated file but security keywords found in CLAUDE.md or rules → **WARN** — "Consider extracting security rules into a dedicated `.claude/rules/security.md`"
+- No security rules found anywhere → **WARN** — "No security rules detected. Consider adding rules for auth, input validation, and secrets handling"
+
 ## Phase 2: Alignment Checks
 
 These checks verify that the configuration matches the actual project state.
@@ -88,6 +100,33 @@ If `.claude/rules/` directory exists, read each rule file. If a rule has a `path
 - No rules directory → **SKIP**
 - Some paths have no matches → **WARN** — list the rules with unmatched paths
 
+### 2.5 Agent Configuration Quality
+
+If `.claude/agents/` directory exists with agent files:
+
+1. Check that each agent has a `model:` field in its YAML frontmatter
+2. Check that each agent has at least a Scope section defining its boundaries
+3. Check if all agents use the same model (no diversity)
+
+Scoring:
+- All agents have model + scope, and model diversity present → **PASS**
+- Some agents lack model or scope → **WARN** — list which agents need improvement
+- All agents use the same model → **WARN** — "All agents use `[model]`. Consider `haiku` for exploration, `opus` for review tasks"
+- No agents directory → **SKIP**
+
+### 2.6 Hook Configuration Quality
+
+If `.claude/settings.json` has a `hooks` section:
+
+1. Check that every hook entry has a `statusMessage` field
+2. Check that `PreToolUse` hooks use `exit 2` (not `exit 1`) for blocking — `exit 1` causes a generic error, `exit 2` provides Claude with the reason
+3. Check for hooks with no `matcher` (runs on every tool use — usually unintentional)
+
+Scoring:
+- All hooks well-configured → **PASS**
+- Missing `statusMessage` or incorrect exit codes → **WARN** — list specific issues
+- No hooks section → **SKIP**
+
 ## Phase 3: Suggestions
 
 Based on what you found in Phase 1 and 2, provide actionable improvement suggestions. Only suggest items that are relevant to this specific project.
@@ -112,22 +151,30 @@ If the project has more than 3 distinct top-level source directories (e.g., `fro
 If you notice repetitive patterns in the project structure (e.g., multiple similar route handlers, repeated component scaffolding):
 - Suggest creating a skill to automate the pattern
 
+### 3.5 Model Routing
+
+If `.claude/agents/` exists and all agents use the same model:
+- Suggest differentiating models: "Consider `haiku` for exploration agents, `sonnet` for implementation, `opus` for review. This optimizes cost and matches each agent's reasoning needs."
+
 ## Phase 4: Summary
 
 Calculate the score using this weighted point system (100 points total):
 
-**Essential Checks (60 points):**
+**Essential Checks (70 points):**
 - CLAUDE.md existence: 15 pts (PASS=15, FAIL=0)
 - Test command: 15 pts (PASS=15, FAIL=0)
 - Build command: 10 pts (PASS=10, WARN=5, FAIL=0)
 - Sensitive file protection: 10 pts (PASS=10, WARN=5, FAIL=0)
 - Project overview: 10 pts (PASS=10, WARN=5, FAIL=0)
+- Security rules: 10 pts (PASS=10, WARN=5, FAIL=0)
 
-**Alignment Checks (40 points):**
-- Directory references: 10 pts (PASS=10, WARN=5, FAIL=0)
-- CLAUDE.md length: 10 pts (PASS=10, WARN=5, FAIL=0)
-- Command availability: 10 pts (PASS=10, WARN=5, FAIL=0)
-- Rules path validation: 10 pts (PASS=10, WARN=5, FAIL=0)
+**Alignment Checks (30 points):**
+- Directory references: 6 pts (PASS=6, WARN=3, FAIL=0)
+- CLAUDE.md length: 6 pts (PASS=6, WARN=3, FAIL=0)
+- Command availability: 6 pts (PASS=6, WARN=3, FAIL=0)
+- Rules path validation: 6 pts (PASS=6, WARN=3, FAIL=0)
+- Agent configuration quality: 3 pts (PASS=3, WARN=1, FAIL=0)
+- Hook configuration quality: 3 pts (PASS=3, WARN=1, FAIL=0)
 
 **SKIP handling:** If a check is SKIP, remove its points from the denominator and scale proportionally to 100.
 
@@ -137,25 +184,30 @@ Present results as a summary table with emoji indicators:
 Configuration Audit Results
 ═══════════════════════════
 
-Essential Checks (45/60)
+Essential Checks (60/70)
   🟢 [PASS] CLAUDE.md found at project root
   🟢 [PASS] Test command found: npm test
   🟢 [PASS] Build command found: npm run build
   🟡 [WARN] Sensitive files: .env protected, but secrets/ not in deny list
   🟢 [PASS] Project overview present
+  🟡 [WARN] Security keywords found in CLAUDE.md, but no dedicated security rule file
 
-Alignment Checks (30/40)
+Alignment Checks (27/30)
   🟢 [PASS] All referenced directories exist
   🟢 [PASS] CLAUDE.md length: 87 lines
   🟢 [PASS] Command manifest found: package.json
   ⚪ [SKIP] No .claude/rules/ directory
+  🟡 [WARN] Agent "backend-dev": all agents use sonnet — consider model diversity
+  ⚪ [SKIP] No hooks configured
 
 Suggestions
   • Add a PostToolUse hook for auto-linting: npx eslint --fix
   • Add secrets/ to deny patterns in .claude/settings.json
+  • Extract security rules into .claude/rules/security.md
+  • Consider haiku for exploration agents, opus for review
 
-Score: 83/100
-  Essential: 45/60  |  Alignment: 30/40
+Score: 87/100
+  Essential: 60/70  |  Alignment: 27/30
 ```
 
 Adjust the table to reflect actual findings. Calculate the real score based on the point system above. Only show suggestions that apply to this project. Do not show Phase/Step labels — use the friendly format above.

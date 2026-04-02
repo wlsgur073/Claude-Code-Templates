@@ -11,3 +11,6 @@ Follow these rules when generating configuration files.
 - **Skills should use `$ARGUMENTS`** — if the skill accepts parameters, parse them from `$ARGUMENTS` in Step 1 instead of asking the user
 - **Skills should bundle reference files** — when a skill needs project context (conventions, examples), put them in a `references/` directory alongside SKILL.md
 - **Hooks should use `statusMessage`** — every hook entry must include a `statusMessage` so the user sees feedback while it runs
+- **Security rules should reference detected patterns** — don't generate generic "never do X" rules; reference the actual auth middleware, validation library, or secrets management the project uses
+- **Agent model comments must explain the choice** — every agent's `model:` field should have a YAML comment explaining why that model was selected (e.g., `# opus: security review requires deep analysis`)
+- **Advanced features use multi-select** — let the user pick multiple options at once for independent features; don't force one-at-a-time selection

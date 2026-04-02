@@ -69,12 +69,13 @@ Ask the user the following questions **one at a time**. For each question, use t
    **Open-ended:**
    > "What branch naming convention and commit message style do you use? Any steps you always do before starting development?"
 
-6. **Advanced features** — Ask: "Would you like to set up any of these optional features?"
+6. **Advanced features** — Ask: "Would you like to set up any of these optional features? (pick all that apply)"
    - (a) Auto-linting hooks — automatically runs linter after every file edit
    - (b) File protection hooks — blocks edits to `.env` and sensitive files
-   - (c) Custom agent roles — specialized agents for different parts of the codebase
-   - (d) Custom skill commands — reusable multi-step workflow automations
-   - (e) None for now
+   - (c) Security rule file — explicit rules for auth, input validation, and secrets handling
+   - (d) Custom agent roles — specialized agents for different parts of the codebase
+   - (e) Custom skill commands — reusable multi-step workflow automations
+   - (f) None for now
 
 ## Phase 3A: Generate Files
 
@@ -240,7 +241,18 @@ color: "blue"
 
 Available `color` values: `blue`, `cyan`, `green`, `yellow`, `magenta`, `red`.
 
-After creating each agent, ask:
+After creating the agent body, ask about model selection:
+
+> "What model should this agent use?"
+> - (a) **haiku** — fastest, cheapest. Best for read-only exploration and file search
+> - (b) **sonnet** — balanced. Best for implementation, debugging, and testing (recommended)
+> - (c) **opus** — deepest reasoning. Best for architecture review and security analysis
+> - (d) **inherit** — use the parent session's model
+
+Use the selection in the agent's `model:` field with a YAML comment explaining the choice:
+`# haiku: read-only exploration, speed over depth`
+
+Then ask:
 
 > "Would you like to add another agent role, or move on?"
 
@@ -271,6 +283,29 @@ Parse `$ARGUMENTS` for the required parameters. If `$ARGUMENTS` is empty, ask th
 ```
 
 If the skill needs project-specific context (coding conventions, API patterns, example files), create a `references/` directory alongside SKILL.md with supporting markdown files.
+
+**Security rule file** — create `.claude/rules/security.md`:
+
+```markdown
+# Security Rules
+
+## Authentication
+- [Detected auth pattern, e.g., "JWT with refresh tokens via passport.js" — or ask the user]
+- Never log authentication tokens or credentials
+- Never hardcode secrets — use environment variables
+
+## Input Validation
+- All user input must be validated before use (Zod schemas, framework validators, etc.)
+- Never trust client-side validation alone — always validate server-side
+- Sanitize output to prevent XSS when rendering user content
+
+## Secrets Handling
+- Never commit `.env`, `.pem`, `.key`, or credential files
+- Environment variables are validated at startup (fail fast on missing vars)
+- API keys must be loaded from environment, never from source code
+```
+
+Customize the rules based on what you detected in the project (auth middleware, validation libraries, secret management patterns). If nothing was detected, use the generic template above and ask the user to fill in project-specific details.
 
 After creating each skill, ask:
 

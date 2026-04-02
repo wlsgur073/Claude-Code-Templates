@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Model routing guidance table (haiku/sonnet/opus) in advanced features guide
 - `UserPromptSubmit` hook event explanation in guide and key concepts
+- Security rule file generation option in `/generate` advanced path (Question 6c)
+- Model selection prompt during agent creation in `/generate`
+- Security rules check (1.6) in `/audit` — checks for dedicated security rule files
+- Agent configuration quality check (2.5) in `/audit` — validates model and scope
+- Hook configuration quality check (2.6) in `/audit` — validates statusMessage and exit codes
+- Model routing suggestion (3.5) in `/audit` — recommends model diversity for agents
+- Hook practical combinations guidance in advanced features guide
+- Model cost/quality tradeoff note in advanced features guide
+- Three new best-practice rules: security pattern detection, model comment rationale, multi-select for features
 
 ### Changed
 
@@ -22,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Aligned hook order (PreToolUse → PostToolUse) between guide and template
 - Relaxed `advanced-features-guide.md` line limit from ~130 to ~160 (now 157 lines)
 - Korean translations synced for advanced features guide, agent template, and settings
+- `/audit` scoring rebalanced from 60/40 to 70/30 (Essential/Alignment) to reflect security importance
+- `/generate` Question 6 expanded from 5 to 6 options with multi-select support
+- Korean translations synced for guide additions (hook combos, cost tradeoff)
 
 ### Fixed
 

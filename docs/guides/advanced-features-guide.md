@@ -54,6 +54,7 @@ Key concepts:
 - **`PostToolUse` + `|| true`** runs after the action completes -- use for auto-linting or formatting
 - **`UserPromptSubmit`** runs before Claude processes user input -- use for keyword detection or automatic context injection
 - Other events: `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStop`, `PreCompact` -- see [hooks docs](https://code.claude.com/docs/en/hooks) for all event types
+- **Practical combinations:** `SessionStart` for project context injection at startup, `PreCompact` for preserving critical notes before auto-compaction, `SubagentStop` for validating agent output before returning to the parent session
 - **Hook types:** `"type": "command"` (shell) or `"type": "prompt"` (LLM-driven, for `PreToolUse`, `Stop`, `SubagentStop`, `UserPromptSubmit`)
 
 ## Agents
@@ -106,6 +107,8 @@ Four sections keep agent prompts focused: **Scope** defines what the agent can t
 | `opus` | Architecture review, deep analysis | code-reviewer, architect |
 
 Use `"inherit"` to match the parent session's model. Put the reasoning in a YAML comment (`# opus: needs deep analysis for security review`) so the choice is self-documenting.
+
+**Cost tradeoff:** `haiku` is ~60x cheaper than `opus`. Default to `sonnet`; use `haiku` for high-volume read-only tasks, `opus` only when a single mistake is expensive (security review, architecture decisions).
 
 ## Skills
 
