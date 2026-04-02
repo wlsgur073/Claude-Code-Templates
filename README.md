@@ -37,16 +37,16 @@ from day one.
    | `@` import | `@../Claude-Code-Template/plugin/skills/generate/SKILL.md` |
    | Direct paste | Copy the contents of `plugin/skills/generate/SKILL.md` and paste directly into the conversation |
 
-3. **Choose your path** — Claude asks whether this is a new or existing project:
+3. **Choose your path** — Claude detects your project state and asks what to do:
 
-   | Path | Questions | Generated files |
-   | ---- | --------- | --------------- |
-   | **New project** | 4 quick questions (tech stack, description, commands, style) | `CLAUDE.md` (6 sections) + `.claude/settings.json` |
-   | **Existing project** | 6 questions with auto-detected defaults | `CLAUDE.md` (8 sections) + `.claude/settings.json` + `.claude/rules/*.md` + optional hooks/agents/skills |
+   | Path | When | What happens |
+   | ---- | ---- | ------------ |
+   | **New project** | No code yet | 4 quick questions → `CLAUDE.md` (6 sections) + `.claude/settings.json` |
+   | **Existing project** | Code exists, no Claude config | 6 questions with auto-detected defaults → full config (CLAUDE.md + settings + rules + optional hooks/agents/skills) |
+   | **Add missing features** | Config already exists | Scans current setup, shows what's configured vs missing, lets you add only what you need |
 
-   > **Which path?** Pick **New project** if you have zero or minimal code and want to get started fast.
-   > Pick **Existing project** if you already have source files — or if you previously used the Starter path and want to upgrade to the full configuration.
-   > **Picked the wrong one?** No worries — Claude detects mismatches and suggests switching paths automatically.
+   > **Already have a config?** Claude auto-detects it and offers to add missing features without re-answering questions you've already covered.
+   > **Picked the wrong path?** No worries — Claude detects mismatches and suggests switching automatically.
 
 4. **Done** — Claude generates all configuration files and prints a summary table.
    Run `/memory` to verify everything loaded correctly.
