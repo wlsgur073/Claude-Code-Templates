@@ -17,6 +17,18 @@ Hooks are shell commands that run automatically before or after Claude uses a to
 ```json
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"$CLAUDE_FILE_PATH\" | grep -qE '(\\.env|migrations/)' && echo 'Protected file' && exit 2 || exit 0",
+            "statusMessage": "Checking for protected files"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
@@ -38,8 +50,10 @@ Key concepts:
 - **`matcher`** -- pipe-separated tool names or regex (e.g., `"Edit|Write"`, `"mcp__.*"`)
 - **`$CLAUDE_FILE_PATH`** / **`$CLAUDE_PROJECT_DIR`** -- injected path variables
 - **`statusMessage`** -- text shown in the UI while the hook runs
-- **`PreToolUse` + `exit 1`** blocks the action; **`PostToolUse` + `|| true`** runs after it
-- Other events: `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStop`, `UserPromptSubmit`, `PreCompact` -- see [hooks docs](https://code.claude.com/docs/en/hooks) for all event types
+- **`PreToolUse` + `exit 2`** blocks the action and tells Claude why -- use for protecting sensitive files like `.env` or migration directories
+- **`PostToolUse` + `|| true`** runs after the action completes -- use for auto-linting or formatting
+- **`UserPromptSubmit`** runs before Claude processes user input -- use for keyword detection or automatic context injection
+- Other events: `Notification`, `Stop`, `SessionStart`, `SessionEnd`, `SubagentStop`, `PreCompact` -- see [hooks docs](https://code.claude.com/docs/en/hooks) for all event types
 - **Hook types:** `"type": "command"` (shell) or `"type": "prompt"` (LLM-driven, for `PreToolUse`, `Stop`, `SubagentStop`, `UserPromptSubmit`)
 
 ## Agents
