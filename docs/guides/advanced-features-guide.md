@@ -97,6 +97,16 @@ Only modify files under `src/api/`, `src/services/`, `src/repos/`, and `tests/`.
 
 Four sections keep agent prompts focused: **Scope** defines what the agent can touch, **Rules** define how it works, **Constraints** set hard limits that prevent damage, and **Verification** tells it how to confirm work is done. Not every agent needs all four -- scale to complexity. Put the model choice rationale in a YAML comment so future readers understand the intent.
 
+### Model Selection
+
+| Model | Best for | Example agents |
+|-------|----------|----------------|
+| `haiku` | Fast lookup, file search, exploration | explorer, linter |
+| `sonnet` | Implementation, debugging, test writing | backend-dev, debugger |
+| `opus` | Architecture review, deep analysis | code-reviewer, architect |
+
+Use `"inherit"` to match the parent session's model. Put the reasoning in a YAML comment (`# opus: needs deep analysis for security review`) so the choice is self-documenting.
+
 ## Skills
 
 Skills are reusable multi-step workflows in `.claude/skills/`. Each becomes a slash command that automates repeatable processes like scaffolding features or adding components.
