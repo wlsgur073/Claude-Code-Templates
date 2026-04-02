@@ -23,7 +23,7 @@ Hooks are shell commands that run automatically before or after Claude uses a to
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"$CLAUDE_FILE_PATH\" | grep -qE '(\\.env|migrations/)' && echo 'Protected file' && exit 2 || exit 0",
+            "command": "echo \"$CLAUDE_FILE_PATH\" | grep -qE '(package-lock\\.json|\\.env|migrations/)' && echo 'Protected file' && exit 2 || exit 0",
             "statusMessage": "Checking for protected files"
           }
         ]
