@@ -73,24 +73,29 @@ tools:
   - Edit
   - Write
   - Bash
+# sonnet: balances speed and quality for implementation tasks
 model: "sonnet"
 color: "green"
 ---
 
-# Scope
-Only modify files under `src/api/`, `src/services/`, and `src/repos/`.
+## Scope
+Only modify files under `src/api/`, `src/services/`, `src/repos/`, and `tests/`.
 
 ## Rules
-- Run `npm test` after making changes
-- Use Zod schemas for all input validation
+- Follow the asyncHandler wrapper pattern for all route handlers
+- All database access must go through repository classes in `src/repos/`
+- Use Zod schemas from `src/models/` for all input validation
+
+## Constraints
+- Never modify migration files or `package-lock.json` without explicit approval
+- Never call repositories directly from route handlers — always through services
+
+## Verification
+- `npm test` passes, `npm run lint` clean, `npm run build` compiles
+- New endpoints include JSDoc tags: @route, @method, @auth
 ```
 
-Key fields:
-
-- **`name`** / **`description`** -- identity and specialization
-- **`tools`** -- allowed tools (Read, Edit, Write, Bash, Grep, Glob, etc.)
-- **`model`** -- which model (`sonnet`, `opus`, `haiku`, `inherit`)
-- **`color`** -- UI display color (`blue`, `cyan`, `green`, `yellow`, `magenta`, `red`)
+Four sections keep agent prompts focused: **Scope** defines what the agent can touch, **Rules** define how it works, **Constraints** set hard limits that prevent damage, and **Verification** tells it how to confirm work is done. Not every agent needs all four -- scale to complexity. Put the model choice rationale in a YAML comment so future readers understand the intent.
 
 ## Skills
 
