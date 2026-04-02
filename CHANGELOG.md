@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [2.5.0] - 2026-04-02
 
 ### Added
 
@@ -27,8 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Incremental mode in `/generate` — detects existing config, adds only missing features
 - Self-verification phase (3.5) in `/generate` — validates output before wrapping up
 - "Next Steps" section in `/audit` — bridges to `/generate` for fixing detected issues
+- "Add missing features" path in README Quick Start table (EN+KO)
 
 ### Changed
+
+- Replaced YAML frontmatter `date` field with independent per-file `version` (semver, starting at 1.0.0)
 
 - Restructured agent example from 2-section (Scope/Rules) to 4-section pattern (Scope/Rules/Constraints/Verification)
 - Expanded hook examples from single PostToolUse to PreToolUse + PostToolUse with file protection pattern
@@ -46,9 +49,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
-- Hook exit code `exit 1` → `exit 2` for proper Claude feedback on blocked actions
+- Hook exit code `exit 1` → `exit 2` for proper Claude feedback on blocked actions (guide, settings, and `/generate` template)
 - Added `migrations/` and `package-lock.json` to hook file protection pattern in guide
 - Agent template heading `# Scope` → `## Scope` for markdownlint MD025 compliance
+- Added missing YAML frontmatter to 4 Korean rule files (architecture, code-style, testing, workflow)
 
 ## [2.4.0] - 2026-03-31
 
