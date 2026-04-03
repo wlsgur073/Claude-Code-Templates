@@ -7,6 +7,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.6.0] - 2026-04-03
+
+### Added
+
+- MCP integration guide with Korean translation — configuration, server types, deferred tool loading, security
+- Template files: 2 agents (security-reviewer, test-writer), 1 skill (run-checks), hook script (validate-prompt.sh), .mcp.json
+- Guide sections: script-based hooks, agent design patterns, skill design patterns, organizing at scale, brownfield adoption
+- MCP option in `/generate` and MCP suggestion in `/audit`
+- Philosophy section in README (EN/KO)
+- Dispatch tables (skills/agents) in advanced template CLAUDE.md
+
+### Changed
+
+- `/generate` agent template: 2-section → 4-section (Scope/Rules/Constraints/Verification)
+- CHANGELOG restored to Keep a Changelog format with concise entries
+- ROADMAP simplified: removed Completed table, kept Vision + Backlog
+- Guide versions bumped to v1.1.0 (advanced-features, claude-md, getting-started, effective-usage)
+- `advanced-features-guide.md` line limit relaxed to ~200
+
+### Fixed
+
+- Dead GitHub Discussions links across 4 files
+- Broken relative path in getting-started.md (`../README.md` → `../../README.md`)
+- English anchor links in Korean guides restored to Korean anchors
+- Korean agent `name` fields restored to English (identifiers)
+
 ## [2.5.0] - 2026-04-02
 
 ### Added
