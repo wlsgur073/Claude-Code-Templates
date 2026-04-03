@@ -11,6 +11,13 @@ from day one.
 
 **[한국어 README](docs/i18n/ko-KR/README.md)**
 
+## Philosophy
+
+1. **Verify, don't trust** — Include test, lint, and build commands so Claude checks its own work. This is the single highest-leverage configuration you can make.
+2. **Less is more** — Shorter instructions produce better adherence. Each guide stays short enough to read in one sitting.
+3. **Specific over vague** — `npm test` not "make sure it works." Every command must be copy-pasteable.
+4. **Start simple, grow later** — Two files get you started. Add rules, hooks, agents, and skills when you actually need them.
+
 ## Quick Start
 
 1. **Add the marketplace and install the plugin** in Claude Code:

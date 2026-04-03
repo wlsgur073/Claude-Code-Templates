@@ -27,6 +27,7 @@ Present a checklist of what's already configured and what's missing:
 > ✗ Skills (none defined)
 >
 > "Which of the missing items would you like to add? (pick all that apply)"
+>
 > - (a) Security rule file
 > - (b) Auto-linting hooks
 > - (c) File protection hooks
@@ -284,6 +285,7 @@ Available `color` values: `blue`, `cyan`, `green`, `yellow`, `magenta`, `red`.
 After creating the agent body, ask about model selection:
 
 > "What model should this agent use?"
+>
 > - (a) **haiku** — fastest, cheapest. Best for read-only exploration and file search
 > - (b) **sonnet** — balanced. Best for implementation, debugging, and testing (recommended)
 > - (c) **opus** — deepest reasoning. Best for architecture review and security analysis
