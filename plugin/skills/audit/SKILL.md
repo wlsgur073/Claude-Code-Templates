@@ -21,11 +21,14 @@ If no previous audit exists, skip this and proceed to Phase 1.
 
 ## Phase 1: Foundation Checks (T1)
 
-These checks verify settings that directly impact Claude's effectiveness. Items in this tier carry the highest weight (50% of the total score).
+These checks form the **Foundation Gate** — they determine what percentage of the Detail Score (Protection + Optimization) applies to the final score. A missing foundation item suppresses the entire score.
 
 ### 1.1 CLAUDE.md Existence
 
-Check if `CLAUDE.md` exists at the project root or `.claude/CLAUDE.md`. If neither exists, report **FAIL** and stop — recommend running `/claude-code-template:generate` first.
+Check if `CLAUDE.md` exists at the project root or `.claude/CLAUDE.md`.
+
+- Found → **PASS**
+- Neither exists → **FAIL** — stop and recommend running `/claude-code-template:generate` first
 
 ### 1.2 Test Command
 
@@ -34,13 +37,16 @@ Search CLAUDE.md for a test command (e.g., `npm test`, `pytest`, `go test`, `car
 - Found and runnable → **PASS**
 - Found but command may not work (e.g., references a tool not in dependencies) → **PARTIAL**
 - Not found → **FAIL** — "Add a test command so Claude can verify its work"
+- No application code in the project (documentation-only, template, or config-only repositories) → **SKIP**
 
 ### 1.3 Build Command
 
 Search CLAUDE.md for a build/compile command (e.g., `npm run build`, `tsc`, `go build`, `cargo build`, `mvn package`).
 
-- Found → **PASS**
+- Found and runnable → **PASS**
+- Found but manifest or tool not available (e.g., references `cargo build` but no `Cargo.toml`) → **PARTIAL**
 - Interpreted language with no build step needed (Python, Ruby) → **SKIP**
+- No application code in the project (documentation-only, template, or config-only repositories) → **SKIP**
 - Not found for a compiled language → **FAIL** — "Add a build command for compile-time error checking"
 
 ### 1.4 Project Overview
@@ -53,7 +59,7 @@ Check if CLAUDE.md has a project description in the first 20 lines (a heading fo
 
 ## Phase 2: Protection Checks (T2)
 
-These checks verify that the project is safe from common mistakes. (30% of total score)
+These checks verify that the project is safe from common mistakes. (60% of Detail Score weight)
 
 ### 2.1 Sensitive File Protection
 
@@ -97,13 +103,14 @@ Scoring:
 
 ## Phase 3: Optimization Checks (T3)
 
-These checks verify that the configuration is well-organized and maintainable. (20% of total score)
+These checks verify that the configuration is well-organized and maintainable. (40% of Detail Score weight)
 
 ### 3.1 Directory References
 
 Extract directory paths mentioned in CLAUDE.md (e.g., `src/api/`, `tests/`, `db/migrations/`). For each, check if the directory actually exists in the project.
 
-- All exist → **PASS**
+- No directory paths mentioned in CLAUDE.md → **SKIP**
+- All mentioned directories exist → **PASS**
 - Most exist, 1-2 missing → **PARTIAL**
 - Many missing → **FAIL** — list the directories mentioned but not found
 
@@ -122,8 +129,10 @@ If it references `cargo` commands, check that `Cargo.toml` exists.
 If it references `go` commands, check that `go.mod` exists.
 If it references `python`/`pip` commands, check that `requirements.txt` or `pyproject.toml` exists.
 
-- Manifest found → **PASS**
-- Manifest missing → **FAIL** — "CLAUDE.md references `{tool}` but `{manifest}` not found"
+- No tool-specific commands referenced in CLAUDE.md → **SKIP**
+- All referenced tool manifests found → **PASS**
+- Multiple tools referenced, some manifests found, others missing → **PARTIAL** — list the missing ones
+- Single tool referenced and its manifest missing, or all referenced manifests missing → **FAIL** — "CLAUDE.md references `{tool}` but `{manifest}` not found"
 
 ### 3.4 Rules Path Validation
 
@@ -178,11 +187,13 @@ Read `references/scoring-model.md` for the complete scoring formula, then calcul
 Apply the scoring model in this order:
 
 1. **Score each item** using the 4-level scale (PASS=1.0, PARTIAL=0.6, MINIMAL=0.3, FAIL=0.0, SKIP=excluded)
-2. **Calculate tier scores** — average of non-SKIP items in each tier
-3. **Calculate weighted total** — `(T1 × 0.50 + T2 × 0.30 + T3 × 0.20) × 100`
-4. **Check Quality Gate** — CLAUDE.md exists AND test command present
-5. **Apply Penalty Cap** — if any T1 item is FAIL, cap the score
-6. **Determine Grade** (A/B/C/D/F) and **Maturity Level** (0–3)
+2. **Calculate Foundation Gate** — `FG_raw = weighted average of non-SKIP T1 items`, `FG = 0.15 + 0.85 × FG_raw`
+3. **Calculate Detail Score** — `DS = (T2_weighted × 0.60 + T3_weighted × 0.40) × 100`
+4. **Calculate Synergy Bonus** — check qualifying pairs (test + build, sensitive file protection + security rules)
+5. **Evaluate LQM** — answer 3 constrained judgment questions about CLAUDE.md content quality (see scoring model)
+6. **Calculate Final** — `min(FG × DS + SB + LQM, 100)`
+7. **Check Quality Gate** — CLAUDE.md exists AND test command present; test condition waived if SKIP (display label only)
+8. **Determine Grade** (A/B/C/D/F) and **Maturity Level** (0–3)
 
 Present results using the output format defined in the scoring model reference. Do not show Phase/Step labels — use the friendly format.
 
@@ -206,8 +217,9 @@ type: project
 ---
 
 ## Latest (YYYY-MM-DD)
+Model: v2 (foundation-gated)
 Score: XX/100 (Grade: X)
-Gate: PASS/FAIL
+Gate: READY/NOT READY
 Maturity: Level N — Name
 Top issues: [2-3 bullet summary of non-PASS items]
 

@@ -7,6 +7,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.7.0] - 2026-04-03
+
+### Changed
+
+- `/audit` scoring model redesigned: additive tier-weighted → Foundation-Gated Multiplicative (`Final = min(FG × DS + SB + LQM, 100)`)
+- Per-item weights within tiers replace equal weighting — test command (0.35) outweighs build command (0.20) in T1
+- Penalty Cap removed — Foundation Gate naturally suppresses scores when foundations are missing
+- Quality Gate changed from score-affecting to display-only label
+- SKIP paths added to 1.2 test command, 1.3 build command (docs/template repos), 3.1 directory refs, 3.3 command availability
+- PARTIAL added to 1.3 build command and 3.3 command availability for complete branching
+
+### Added
+
+- Synergy Bonus (+5 max): rewards complementary item pairs (test+build, sensitive file protection+security rules)
+- LLM Quality Modifier (+8 max): constrained content quality judgment (overview accuracy, command executability, non-obvious patterns)
+- Audit history includes model version (v2) for cross-version score comparison
+
 ## [2.6.0] - 2026-04-03
 
 ### Added
