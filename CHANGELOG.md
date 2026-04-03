@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Template files: 2 agents (security-reviewer, test-writer), 1 skill (run-checks), hook script (validate-prompt.sh), .mcp.json
 - Guide sections: script-based hooks, agent design patterns, skill design patterns, organizing at scale, brownfield adoption
 - MCP option in `/generate` and MCP suggestion in `/audit`
+- Tiered scoring model for `/audit` — Foundation (50%), Protection (30%), Optimization (20%) with 4-level scale, Quality Gate, Penalty Cap, and Maturity Levels
+- Memory integration in `/audit` (saves results) and `/generate` (remembers declined features)
 - Philosophy section in README (EN/KO)
 - Dispatch tables (skills/agents) in advanced template CLAUDE.md
 

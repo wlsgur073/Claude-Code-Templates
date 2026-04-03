@@ -11,7 +11,17 @@ Follow these phases in order.
 
 ---
 
-## Phase 0: Determine Path
+## Phase 0: Check Previous Generation
+
+Before determining the path, check for previous generation results in memory:
+
+1. Read the user's MEMORY.md index — look for a `generate-history` entry
+2. If found, read the file to see what features were previously generated and what features the user explicitly declined
+3. Do NOT re-suggest declined features during the advanced features question (Phase 2A Question 6) unless the user asks
+
+If no previous generation exists, skip this and proceed.
+
+## Phase 0.5: Determine Path
 
 First, silently check if Claude Code configuration already exists:
 
@@ -83,3 +93,27 @@ After generating all files:
 **If the user followed the Starter path**, also add:
 
 > You're using a starter configuration. As your project grows and you want rule files, hooks, agents, or skills, run `/claude-code-template:generate` again and choose "Existing project" to upgrade to the full configuration.
+
+## Phase 4.5: Save Generation Results
+
+After the wrap-up, save results to memory:
+
+1. Read MEMORY.md — check if `generate-history` entry exists
+2. Write (or update) the generate-history memory file:
+
+```markdown
+---
+name: generate-history
+description: Previous /generate choices for smarter future suggestions
+type: project
+---
+
+## Latest (YYYY-MM-DD)
+Path: starter | advanced | incremental
+Generated: [list of files created or modified]
+Declined: [features user explicitly skipped in Question 6]
+```
+
+- Overwrite with latest run (no history needed — just current state)
+3. Update MEMORY.md index if the `generate-history` entry doesn't exist yet:
+   - Add: `- [Generate history](generate-history.md) — Latest /generate choices and declined features`
