@@ -13,6 +13,7 @@ Scan the current configuration silently:
 3. Check `.claude/rules/` — list existing rule files
 4. Check `.claude/agents/` — list existing agent files
 5. Check `.claude/skills/` — list existing skill directories
+6. Check `.mcp.json` — check if MCP servers are configured
 
 Present a checklist of what's already configured and what's missing:
 
@@ -25,6 +26,7 @@ Present a checklist of what's already configured and what's missing:
 > ✗ Hooks (no auto-linting or file protection)
 > ✗ Agents (none defined)
 > ✗ Skills (none defined)
+> ✗ MCP servers (no .mcp.json)
 >
 > "Which of the missing items would you like to add? (pick all that apply)"
 >
@@ -116,7 +118,8 @@ Ask the user the following questions **one at a time**. For each question, use t
    - (c) Security rule file — explicit rules for auth, input validation, and secrets handling
    - (d) Custom agent roles — specialized agents for different parts of the codebase
    - (e) Custom skill commands — reusable multi-step workflow automations
-   - (f) None for now
+   - (f) MCP server configuration — connect Claude to databases, APIs, or external tools
+   - (g) None for now
 
 ## Phase 3A: Generate Files
 
@@ -273,12 +276,20 @@ model: "sonnet"
 color: "blue"
 ---
 
-# Scope
-[Directories this agent modifies]
+## Scope
+[Directories this agent can touch]
 
 ## Rules
-[Domain-specific rules]
+[How it works — domain-specific patterns and conventions]
+
+## Constraints
+[Hard limits — what it must never do, e.g., "Never modify migration files"]
+
+## Verification
+[How to confirm work is done — test commands, checks to run]
 ```
+
+Not every agent needs all four sections — scale to complexity. **Scope** and **Rules** are essential; add **Constraints** when the agent could cause damage, and **Verification** when quality checks are available.
 
 Available `color` values: `blue`, `cyan`, `green`, `yellow`, `magenta`, `red`.
 
@@ -354,3 +365,24 @@ After creating each skill, ask:
 > "Would you like to add another skill, or move on to the summary?"
 
 Repeat until the user says to move on.
+
+**MCP server configuration** — ask the user what external tools Claude should connect to, then create `.mcp.json` at the project root:
+
+```json
+{
+  "mcpServers": {
+    "[server-name]": {
+      "command": "[npx|uvx|docker]",
+      "args": ["[package-or-image]"],
+      "env": {}
+    }
+  }
+}
+```
+
+Common suggestions based on detected project:
+- PostgreSQL detected (`pg`, `prisma`, `knex` in dependencies) → suggest `@modelcontextprotocol/server-postgres`
+- File access needed → suggest `@modelcontextprotocol/server-filesystem`
+- Web fetching needed → suggest `mcp-server-fetch` (Python, via `uvx`)
+
+If the `.mcp.json` contains API keys or connection strings with credentials, add `.mcp.json` to `.gitignore` and note the required env vars in CLAUDE.md.

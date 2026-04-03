@@ -1,5 +1,5 @@
 # CLAUDE.md
-<!-- Last reviewed: 2026-04-02 -->
+<!-- Last reviewed: 2026-04-03 -->
 
 This is a documentation and template repository — it contains no application code, no build system, and no tests. Its purpose is to teach developers how to configure Claude Code for their own projects.
 
@@ -9,8 +9,8 @@ This is a documentation and template repository — it contains no application c
 - `plugin/` — Plugin package containing `.claude-plugin/plugin.json`, `skills/generate/SKILL.md` (`/claude-code-template:generate`), `skills/audit/SKILL.md` (`/claude-code-template:audit`), and `hooks/hooks.json`
 - `CHANGELOG.md` — Version history in Keep a Changelog format
 - `templates/starter/` — Minimal filled example for TaskFlow (5-section CLAUDE.md + basic settings.json)
-- `templates/advanced/` — Full filled example for TaskFlow (rules, hooks, agents, skills)
-- `docs/guides/` — Guides covering each Claude Code configuration concept (CLAUDE.md writing, rules, settings, directory structure, effective usage patterns)
+- `templates/advanced/` — Full filled example for TaskFlow (rules, hooks, agents, skills, MCP)
+- `docs/guides/` — Guides covering each Claude Code configuration concept (CLAUDE.md writing, rules, settings, directory structure, effective usage patterns, advanced features, MCP integration)
 - `docs/i18n/ko-KR/` — Korean translations (`guides/`, `templates/`, `README.md`)
 - `docs/plans/` — Design and planning documents for feature work
 - `docs/*.md` — GitHub community health files and project governance (CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md, PRIVACY.md, ROADMAP.md)
@@ -20,10 +20,11 @@ This is a documentation and template repository — it contains no application c
 
 - Templates must all reference the fictional "TaskFlow" project — do not introduce other fictional projects
 - Templates (under `templates/`) and guides (under `docs/guides/`) use YAML frontmatter with `title`, `description`, and `version` fields — each file has its own independent semver starting from `1.0.0`; bump the version when modifying the file's content
-- Guides in `docs/guides/` should stay under ~130 lines each; they teach conciseness, so they should model it
+- Guides in `docs/guides/` should stay concise — most under ~130 lines, `advanced-features-guide.md` under ~200 (covers 3 topics with code examples)
 - This CLAUDE.md should stay under 200 lines, matching the repo's own recommendation in `docs/guides/claude-md-guide.md`
 - There is no source code — all content is Markdown. Review for clarity, accuracy, and consistency across files
 - When adding a new guide, follow the existing frontmatter format (`title`, `description`, `version`) and add cross-links from `docs/guides/getting-started.md`
+- When modifying guides or templates, verify `/generate` and `/audit` skills still align — check that skill templates, checklists, and suggestions reflect the updated patterns
 - CLAUDE.md files under `templates/` are repo content, not instructions for this repo — Claude will lazy-load them when working in those directories, so keep them clearly framed as examples
 
 ## Plugin Development Rules

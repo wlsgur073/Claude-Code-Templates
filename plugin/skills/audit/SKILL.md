@@ -151,7 +151,12 @@ If the project has more than 3 distinct top-level source directories (e.g., `fro
 If you notice repetitive patterns in the project structure (e.g., multiple similar route handlers, repeated component scaffolding):
 - Suggest creating a skill to automate the pattern
 
-### 3.5 Model Routing
+### 3.5 MCP Integration
+
+If the project uses databases (PostgreSQL, MySQL — check for `pg`, `prisma`, `knex`, `sequelize` in dependencies) or external APIs but has no `.mcp.json`:
+- Suggest adding an MCP server: "Your project uses [database/API]. Consider adding a `.mcp.json` with a matching MCP server so Claude can query it directly during development."
+
+### 3.6 Model Routing
 
 If `.claude/agents/` exists and all agents use the same model:
 - Suggest differentiating models: "Consider `haiku` for exploration agents, `sonnet` for implementation, `opus` for review. This optimizes cost and matches each agent's reasoning needs."
